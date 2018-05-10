@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dlri.chinacnr.bwts.dao.ProtocolDao">
+	<resultMap type="Protocol" id="protocolResult">
+		<id property="fid" column="fid"/>
+		<result property="fdefines" column="fdefines"/>
+		<result property="fposition" column="fposition"/>
+		<result property="frange" column="frange"/>
+		<result property="fremark" column="fremark"/>
+		<result property="fenable" column="fenable"/>
+	</resultMap>
+
+	<select id="getAllList" resultMap="protocolResult">
+		select * from t_protocol
+	</select>
+	
+	<update id="createNewTable">
+        create table ${newTableName} as select * from ${originalTableName}
+    </update>
+    
+    
+    <update id="createDynamicTable" parameterType="String" >
+    	CREATE TABLE ${tableName} (${sql1}) ENGINE=InnoDB DEFAULT CHARSET=utf8
+    </update>
+    
+    <insert id="add" parameterType="String"  >
+		${addSql}
+	</insert>
+	
+	
+</mapper> 

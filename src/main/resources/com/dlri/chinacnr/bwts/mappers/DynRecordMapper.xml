@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dlri.chinacnr.bwts.dao.DynRecordDao">
+	<resultMap type="DynRecord" id="dynRecordResult">
+		<id property="id" column="id"/>
+		<result property="col1" column="col1"/>
+		<result property="col2" column="col2"/>
+		<result property="col3" column="col3"/>
+		<result property="col4" column="col4"/>
+		<result property="testTime" column="test_time"/>
+		<result property="col6" column="col6"/>
+		<result property="col7" column="col7"/>
+		<result property="col8" column="col8"/>
+		<result property="col9" column="col9"/>
+		<result property="col10" column="col10"/>
+		<result property="col11" column="col11"/>
+		<result property="col12" column="col12"/>
+		<result property="col13" column="col13"/>
+		<result property="col14" column="col14"/>
+		<result property="col15" column="col15"/>
+		<result property="col16" column="col16"/>
+		<result property="col17" column="col17"/>
+		<result property="col18" column="col18"/>
+		<result property="col19" column="col19"/>
+		<result property="col20" column="col20"/>
+		<result property="col21" column="col21"/>
+		<result property="col22" column="col22"/>
+		<result property="col23" column="col23"/>
+		<result property="col24" column="col24"/>
+		<result property="col25" column="col25"/>
+		<result property="col26" column="col26"/>
+		<result property="col27" column="col27"/>
+		<result property="col28" column="col28"/>
+		<result property="col29" column="col29"/>
+		<result property="col30" column="col30"/>
+		<result property="col31" column="col31"/>
+		<result property="col32" column="col32"/>
+		<result property="col33" column="col33"/>
+		<result property="col34" column="col34"/>
+		<result property="col35" column="col35"/>
+		<result property="col36" column="col36"/>
+		<result property="col37" column="col37"/>
+		<result property="col38" column="col38"/>
+		<result property="col39" column="col39"/>
+		<result property="col40" column="col40"/>
+		<result property="col41" column="col41"/>
+		<result property="col42" column="col42"/>
+	</resultMap>
+
+	<select id="getAllList" resultMap="dynRecordResult">
+		select * from dyn_record
+	</select>
+	
+	<select id="queryDynRecordDao" parameterType="Map" resultMap="dynRecordResult">
+		select * from dyn_record 
+		<where>
+			<if test="wheelCode!=null">
+				and col1 like concat('%',#{wheelCode},'%')
+			</if>
+			<if test="repairing!=null">
+				and col2= #{repairing}
+			</if>
+			 <if test="startDate != null and startDate != ''">
+			 	AND test_time <![CDATA[>=]]> #{startDate}
+			 </if>
+ 			<if test="endDate != null and endDate != ''">AND test_time <![CDATA[<=]]>#{endDate}</if>
+		</where>
+		order by test_time ASC,id ASC
+		limit 
+                     #{firstPage}, 
+                     #{rows};
+	</select>
+	
+	<select id="queryDynRecordTotalDao" parameterType="Map" resultType="long">
+		select count(id) from dyn_record 
+		<where>
+			<if test="wheelCode!=null">
+				and col1 like concat('%',#{wheelCode},'%')
+			</if>
+			<if test="repairing!=null">
+				and col2= #{repairing}
+			</if>
+			 <if test="startDate != null and startDate != ''">
+			 	AND test_time <![CDATA[>=]]> #{startDate}
+			 </if>
+ 			<if test="endDate != null and endDate != ''">AND test_time <![CDATA[<=]]>#{endDate}</if>
+		</where>
+		
+	</select>
+	
+</mapper> 
