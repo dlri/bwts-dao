@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dlri.chinacnr.bwts.dao.DetectionRecordDao">
+	<!--该结果集映射只映射基本属性，没有映射集合 -->  
+	<resultMap type="DetectionRecord" id="detectionRecordResult">
+		<id property="id" column="id"/>
+		<result property="wheelId" column="wheel_id"/>
+		<result property="repairRank" column="repair_rank"/>
+		<result property="aBearingNum" column="a_bearing_num"/>
+		<result property="bBearingNum" column="b_bearing_num"/>
+		<result property="detectionTime" column="detection_time"/>
+		<result property="tBedType" column="tbed_type"/>
+		<result property="tBedNum" column="tbed_num"/>
+		<result property="savePath" column="save_path"/>
+		<result property="pdfFile" column="pdf_file"/>
+		<result property="bgmFile" column="bgm_file"/>
+	</resultMap>
+	
+	<!--该结果集映射映射基本属性和检测点的集合 -->  
+	<resultMap type="DetectionRecord" id="detectionRecordWithDetailsResult">
+		<id property="id" column="id"/>
+		<result property="wheelId" column="wheel_id"/>
+		<result property="repairRank" column="repair_rank"/>
+		<result property="aBearingNum" column="a_bearing_num"/>
+		<result property="bBearingNum" column="b_bearing_num"/>
+		<result property="detectionTime" column="detection_time"/>
+		<result property="tBedType" column="tbed_type"/>
+		<result property="tBedNum" column="tbed_num"/>
+		<result property="savePath" column="save_path"/>
+		<result property="pdfFile" column="pdf_file"/>
+		<result property="bgmFile" column="bgm_file"/>
+		
+		<collection property="detectionDetailses" resultMap="com.dlri.chinacnr.bwts.dao.DetectionDetailsDao.noDetectionDetailsResult" />
+	</resultMap>
+
+	<select id="queryOneDetectionRecord" parameterType="long" resultMap="detectionRecordResult">
+		select d.id,d.wheel_id,d.repair_rank,d.a_bearing_num,d.b_bearing_num,d.detection_time,
+		d.tbed_type,d.tbed_num,d.save_path,d.pdf_file,d.bgm_file
+		 from detection_record d
+		 where d.id=#{id}
+	</select>
+	
+	<select id="queryDetectionRecordWithDetails" parameterType="long" resultMap="detectionRecordWithDetailsResult">
+		select d.id,d.wheel_id,d.repair_rank,d.a_bearing_num,d.b_bearing_num,d.detection_time,
+		d.tbed_type,d.tbed_num,d.save_path,d.pdf_file,d.bgm_file,
+		t.id,t.channel_name,t.valid_value,t.peak_value,t.vibration_severity,t.vibration_energy,
+		t.peak_num,t.ripple_factor,t.evaluation,t.non_qualified,t.f_drid
+		 from detection_record d left join detection_details t
+		 on d.id=t.f_drid
+		 where d.id=#{id}
+	</select>
+	
+	<!-- userGeneratedKeys和keyProperty属性可以让插入后对象获得本身自己的id -->
+	<insert id="insertOneDetectionRecord" parameterType="DetectionRecord" useGeneratedKeys="true" keyProperty="id" >
+		insert into detection_record  
+		(id,wheel_id,repair_rank,a_bearing_num,b_bearing_num,detection_time,tbed_type,tbed_num,save_path,pdf_file,bgm_file)  
+         values(0,#{wheelId},#{repairRank},#{aBearingNum},#{bBearingNum},#{detectionTime},#{tBedType},#{tBedNum},
+         #{savePath},#{pdfFile},#{bgmFile}) 
+	</insert>
+	
+	<select id="queryDetectionRecordByCondition" parameterType="Map" resultMap="detectionRecordWithDetailsResult">
+		select d.id,d.wheel_id,d.repair_rank,d.a_bearing_num,d.b_bearing_num,d.detection_time,
+		d.tbed_type,d.tbed_num,d.save_path,d.pdf_file,d.bgm_file,
+		t.channel_name,t.valid_value,t.peak_value,t.vibration_severity,t.vibration_energy,
+		t.peak_num,t.ripple_factor,t.evaluation,t.non_qualified,t.f_drid
+		 from detection_record d left join detection_details t
+		 on d.id=t.f_drid
+		<where>
+			<if test="wheelCode!=null">
+				and d.wheel_id like concat('%',#{wheelCode},'%')
+			</if>
+			<if test="repairing!=null">
+				and d.repair_rank= #{repairing}
+			</if>
+			 <if test="startDate != null and startDate != ''">
+			 	AND d.detection_time <![CDATA[>=]]> #{startDate}
+			 </if>
+ 			<if test="endDate != null and endDate != ''">AND d.detection_time <![CDATA[<=]]>#{endDate}</if>
+		</where>
+		order by d.detection_time ASC,id ASC
+		limit 
+                     #{firstPage}, 
+                     #{rows};
+	</select>
+	
+	<select id="queryDetectionRecordTotal" parameterType="Map" resultType="long">
+		select count(id) from detection_record d 
+		<where>
+			<if test="wheelCode!=null">
+				and d.wheel_id like concat('%',#{wheelCode},'%')
+			</if>
+			<if test="repairing!=null">
+				and d.repair_rank= #{repairing}
+			</if>
+			 <if test="startDate != null and startDate != ''">
+			 	AND d.detection_time <![CDATA[>=]]> #{startDate}
+			 </if>
+ 			<if test="endDate != null and endDate != ''">AND d.detection_time <![CDATA[<=]]>#{endDate}</if>
+		</where>
+		
+	</select>
+	
+</mapper> 

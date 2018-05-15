@@ -4,11 +4,36 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 	<settings>
+	<!--是否开启自动驼峰命名规则（camel case）映射，即从经典数据库列名 A_COLUMN 到经典Java 属性名 aColumn 的类似映射。 -->
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
         <!-- 打印查询语句 -->
         <setting name="logImpl" value="STDOUT_LOGGING" />
+        <!--允许 JDBC 支持自动生成主键-->
+        <setting name="useGeneratedKeys" value="false"/>
     </settings>
 	<!-- 类型别名  代替<typeAliases><typeAlias alias="User" type="com.XX.User"/>-->
 	<typeAliases>
 		<package name="com.dlri.chinacnr.bwts.entity"/>
 	</typeAliases>
+	
+	<environments default="development">
+		<environment id="development">
+			<transactionManager type="JDBC">
+				<property name="" value="" />
+			</transactionManager>
+			<dataSource type="UNPOOLED">
+				<property name="driver" value="com.mysql.cj.jdbc.Driver" />
+				<property name="url" value="jdbc:mysql://localhost:3306/db_maven?serverTimezone=UTC&amp;useSSL=false&amp;useUnicode=true&amp;characterEncoding=utf8" />
+				<property name="username" value="root" />
+				<property name="password" value="123456" />
+			</dataSource>
+		</environment>
+	</environments>
+	 <!-- 单元测试时打开-->
+	<mappers>
+		<mapper resource="com/dlri/chinacnr/bwts/mappers/DetectionRecordMapper.xml" />
+		<mapper resource="com/dlri/chinacnr/bwts/mappers/DetectionDetailsMapper.xml" />
+	</mappers>
+	
+	 
 </configuration>
