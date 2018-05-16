@@ -39,7 +39,7 @@ public class detectionDetailsDaoTest {
 		detectionDetails1.setRippleFactor((float)4.00);
 		detectionDetails1.setEvaluation("合格");
 		detectionDetails1.setNonQualified("");
-		detectionDetails1.setfDrid(11);
+		detectionDetails1.setfDrid(10);
 		
 		DetectionDetails detectionDetails2 = new DetectionDetails();
 		detectionDetails2.setChannelName("IN0:A2");
@@ -51,7 +51,7 @@ public class detectionDetailsDaoTest {
 		detectionDetails2.setRippleFactor((float)4.00);
 		detectionDetails2.setEvaluation("合格");
 		detectionDetails2.setNonQualified("");
-		detectionDetails2.setfDrid(11);
+		detectionDetails2.setfDrid(10);
 		
 		DetectionDetails detectionDetails3 = new DetectionDetails();
 		detectionDetails3.setChannelName("IN0:B1");
@@ -63,7 +63,7 @@ public class detectionDetailsDaoTest {
 		detectionDetails3.setRippleFactor((float)4.00);
 		detectionDetails3.setEvaluation("合格");
 		detectionDetails3.setNonQualified("");
-		detectionDetails3.setfDrid(11);
+		detectionDetails3.setfDrid(10);
 
 		DetectionDetailsDaoImpl dao = new DetectionDetailsDaoImpl();
 		dao.insertBatchDetectionDetails(Arrays.asList(detectionDetails1,detectionDetails2,detectionDetails3));

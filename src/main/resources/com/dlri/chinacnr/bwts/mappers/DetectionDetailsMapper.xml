@@ -5,7 +5,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="com.dlri.chinacnr.bwts.dao.DetectionDetailsDao">
 	<!--该结果集映射只映射基本属性，没有映射集合 -->  
 	<resultMap type="DetectionDetails" id="noDetectionDetailsResult">
-		<id property="id" column="id"/>
+		<id property="id" column="tid"/>
 		<result property="channelName" column="channel_name"/>
 		<result property="validValue" column="valid_value"/>
 		<result property="peakValue" column="peak_value"/>
@@ -15,11 +15,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result property="rippleFactor" column="ripple_factor"/>
 		<result property="evaluation" column="evaluation"/>
 		<result property="nonQualified" column="non_qualified"/>
+		<result property="fDrid" column="f_drid"/>
 	</resultMap>
 	
 	<!--该结果集映射只映射基本属性，有映射集合 -->  
 	<resultMap type="DetectionDetails" id="detectionDetailsResult">
-		<id property="id" column="id"/>
+		<id property="id" column="tid"/>
 		<result property="channelName" column="channel_name"/>
 		<result property="validValue" column="valid_value"/>
 		<result property="peakValue" column="peak_value"/>
@@ -29,6 +30,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result property="rippleFactor" column="ripple_factor"/>
 		<result property="evaluation" column="evaluation"/>
 		<result property="nonQualified" column="non_qualified"/>
+		<result property="fDrid" column="f_drid"/>
 		<association property="detectionRecord" resultMap="com.dlri.chinacnr.bwts.dao.DetectionRecordDao.detectionRecordResult"/>
 	</resultMap>
 	
@@ -36,7 +38,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="queryOneDetectionDetails" parameterType="long" resultMap="detectionDetailsResult">
 		select d.id,d.wheel_id,d.repair_rank,d.a_bearing_num,d.b_bearing_num,d.detection_time,
 		d.tbed_type,d.tbed_num,d.save_path,d.pdf_file,d.bgm_file,
-		t.id,t.channel_name,t.valid_value,t.peak_value,t.vibration_severity,t.vibration_energy,
+		t.id tid,t.channel_name,t.valid_value,t.peak_value,t.vibration_severity,t.vibration_energy,
 		t.peak_num,t.ripple_factor,t.evaluation,t.non_qualified,t.f_drid
 		 from detection_details t join detection_record d on t.f_drid=d.id
 		 where t.id=#{id}

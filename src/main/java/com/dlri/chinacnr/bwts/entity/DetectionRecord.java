@@ -19,7 +19,7 @@ public class DetectionRecord {
 	private String savePath;//存放路径
 	private String pdfFile;//PDF文件
 	private String bgmFile;//BGM文件
-	private List<DetectionDetails>detectionDetailses;
+	private List<DetectionDetails>detailsList;
 	public long getId() {
 		return id;
 	}
@@ -86,20 +86,19 @@ public class DetectionRecord {
 	public void setBgmFile(String bgmFile) {
 		this.bgmFile = bgmFile;
 	}
-	public List<DetectionDetails> getDetectionDetailses() {
-		return detectionDetailses;
-	}
-	public void setDetectionDetailses(List<DetectionDetails> detectionDetailses) {
-		this.detectionDetailses = detectionDetailses;
-	}
 	
+	public List<DetectionDetails> getDetailsList() {
+		return detailsList;
+	}
+	public void setDetailsList(List<DetectionDetails> detailsList) {
+		this.detailsList = detailsList;
+	}
 	@Override
 	public String toString() {
-		int len=detectionDetailses.size();
 		return "DetectionRecord [id=" + id + ", wheelId=" + wheelId + ", repairRank=" + repairRank + ", aBearingNum="
 				+ aBearingNum + ", bBearingNum=" + bBearingNum + ", detectionTime=" + detectionTime + ", tBedType="
 				+ tBedType + ", tBedNum=" + tBedNum + ", savePath=" + savePath + ", pdfFile=" + pdfFile + ", bgmFile="
-				+ bgmFile + ", \ndetectionDetailses= \n" +len + "]";
+				+ bgmFile + "]";
 	}
 
 }
