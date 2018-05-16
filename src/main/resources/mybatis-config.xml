@@ -29,11 +29,11 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 			</dataSource>
 		</environment>
 	</environments>
-	 <!-- 单元测试时打开-->
+	 <!-- 单元测试时打开
 	<mappers>
 		<mapper resource="com/dlri/chinacnr/bwts/mappers/DetectionRecordMapper.xml" />
 		<mapper resource="com/dlri/chinacnr/bwts/mappers/DetectionDetailsMapper.xml" />
 	</mappers>
-	
+	-->
 	 
 </configuration>

@@ -1,11 +1,17 @@
 package com.dlri.chinacnr.bwts.dao;
 
+import java.io.IOException;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
+import org.apache.ibatis.session.SqlSession;
 import org.junit.Test;
 
 import com.dlri.chinacnr.bwts.dao.impl.DetectionDetailsDaoImpl;
 import com.dlri.chinacnr.bwts.entity.DetectionDetails;
+import com.dlri.chinacnr.bwts.utils.MybatisUtils;
 
 public class detectionDetailsDaoTest {
 	
@@ -74,5 +80,24 @@ public class detectionDetailsDaoTest {
 		DetectionDetailsDaoImpl dao = new DetectionDetailsDaoImpl();
 		DetectionDetails detectionDetails = dao.queryOneDetectionDetails(4);
 		System.out.println(detectionDetails);
+	}
+	
+	@Test
+	public void testqueryDetectionRecordByCondition() throws IOException {
+		MybatisUtils mybatisUtils = new MybatisUtils();
+		SqlSession openSession;
+		openSession = mybatisUtils.getSqlSession();
+		DetectionDetailsDao mapper = openSession.getMapper(DetectionDetailsDao.class);
+		Map<String,Object>map=new HashMap<String, Object>();
+		map.put("wheelCode", "H63-2304");
+		map.put("repairing", "三级");
+		map.put("startDate",null);
+		map.put("endDate", null);
+		List<DetectionDetails> list= mapper.queryDetectionRecordByCondition(map);
+		for(DetectionDetails dd:list){
+			System.out.println(dd.toString());
+		}
+		
+		openSession.close();
 	}
 }

@@ -91,7 +91,8 @@ public class DetectionDetails {
 		return "DetectionDetails [id=" + id + ", channelName=" + channelName + ", validValue=" + validValue
 				+ ", peakValue=" + peakValue + ", vibrationSeverity=" + vibrationSeverity + ", vibrationEnergy="
 				+ vibrationEnergy + ", peakNum=" + peakNum + ", rippleFactor=" + rippleFactor + ", evaluation="
-				+ evaluation + ", nonQualified=" + nonQualified + ", fDrid=" + fDrid +"]";
+				+ evaluation + ", nonQualified=" + nonQualified + ", fDrid=" + fDrid + ", detectionRecord="
+				+ detectionRecord + "]";
 	}
 	
 }
