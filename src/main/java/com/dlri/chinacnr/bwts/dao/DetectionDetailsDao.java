@@ -13,6 +13,6 @@ public interface DetectionDetailsDao {
 	
 	public int insertBatchDetectionDetails(List<DetectionDetails> list);
 	
-	public List<DetectionDetails> queryDetectionRecordByCondition(Map<String,Object> map);
+	public List<DetectionDetails> queryDetectionDetailsByCondition(Map<String,Object> map);
 	
 }

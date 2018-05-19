@@ -83,7 +83,7 @@ public class detectionDetailsDaoTest {
 	}
 	
 	@Test
-	public void testqueryDetectionRecordByCondition() throws IOException {
+	public void testQueryDetectionRecordByCondition() throws IOException {
 		MybatisUtils mybatisUtils = new MybatisUtils();
 		SqlSession openSession;
 		openSession = mybatisUtils.getSqlSession();
@@ -93,7 +93,7 @@ public class detectionDetailsDaoTest {
 		map.put("repairing", "三级");
 		map.put("startDate",null);
 		map.put("endDate", null);
-		List<DetectionDetails> list= mapper.queryDetectionRecordByCondition(map);
+		List<DetectionDetails> list= mapper.queryDetectionDetailsByCondition(map);
 		for(DetectionDetails dd:list){
 			System.out.println(dd.toString());
 		}

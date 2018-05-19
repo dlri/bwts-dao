@@ -55,10 +55,28 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<!-- userGeneratedKeys和keyProperty属性可以让插入后对象获得本身自己的id -->
 	<insert id="insertOneDetectionRecord" parameterType="DetectionRecord" useGeneratedKeys="true" keyProperty="id" >
 		insert into detection_record  
-		(id,wheel_id,repair_rank,a_bearing_num,b_bearing_num,detection_time,tbed_type,tbed_num,save_path,pdf_file,bgm_file)  
-         values(0,#{wheelId},#{repairRank},#{aBearingNum},#{bBearingNum},#{detectionTime},#{tBedType},#{tBedNum},
+		(wheel_id,repair_rank,a_bearing_num,b_bearing_num,detection_time,tbed_type,tbed_num,save_path,pdf_file,bgm_file)  
+         values(#{wheelId},#{repairRank},#{aBearingNum},#{bBearingNum},#{detectionTime},#{tBedType},#{tBedNum},
          #{savePath},#{pdfFile},#{bgmFile}) 
 	</insert>
+	<!-- 一对多插入存储过程 -->
+	<select id="insertCallProcedureRecord" parameterType="Map" statementType="CALLABLE" resultType="int">
+	{
+		 call insertDetectionData(
+               #{wheelId,mode=IN,jdbcType=VARCHAR},
+               #{repairRank,mode=IN,jdbcType=VARCHAR},
+               #{aBearingNum,mode=IN,jdbcType=VARCHAR},
+               #{bBearingNum,mode=IN,jdbcType=VARCHAR},
+               #{detectionTime,mode=IN,jdbcType=TIMESTAMP},
+               #{tBedNum,mode=IN,jdbcType=VARCHAR},
+               #{savePath,mode=IN,jdbcType=VARCHAR},
+               #{pdfFile,mode=IN,jdbcType=VARCHAR},
+               #{bgmFile,mode=IN,jdbcType=VARCHAR},
+               #{detectionData,mode=IN,jdbcType=VARCHAR},
+               #{res,mode=OUT,jdbcType=INTEGER}
+         )
+      }
+	</select>
 	
 	<select id="queryDetectionRecordByCondition" parameterType="Map" resultMap="detectionRecordWithDetailsResult">
 		select d.id,d.wheel_id,d.repair_rank,d.a_bearing_num,d.b_bearing_num,d.detection_time,

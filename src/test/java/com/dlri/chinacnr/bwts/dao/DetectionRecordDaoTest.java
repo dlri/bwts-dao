@@ -1,16 +1,17 @@
 package com.dlri.chinacnr.bwts.dao;
 
 import java.io.IOException;
+import java.sql.Timestamp;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.junit.Test;
-import java.io.InputStream;
+
 import com.dlri.chinacnr.bwts.dao.impl.DetectionRecordDaoImpl;
 import com.dlri.chinacnr.bwts.entity.DetectionRecord;
 import com.dlri.chinacnr.bwts.utils.MybatisUtils;
-import org.apache.ibatis.io.Resources;
-import org.apache.ibatis.session.SqlSessionFactory;
-import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 public class DetectionRecordDaoTest {
 
@@ -28,8 +29,9 @@ public class DetectionRecordDaoTest {
 		dr.setSavePath("D://test");
 		dr.setPdfFile("cc.pdf");
 		dr.setBgmFile("cc.bgm");
-		detectionRecordDao.insertOneDetectionRecord(dr);
-		System.out.println("sucesse");
+		int num=detectionRecordDao.insertOneDetectionRecord(dr);
+		
+		System.out.println("sucesse"+num);
 	}
 
 	@Test
@@ -50,6 +52,33 @@ public class DetectionRecordDaoTest {
 		DetectionRecord detectionRecord = mapper.queryDetectionRecordWithDetails(10);
 		System.out.println(detectionRecord);
 		System.out.println(detectionRecord.getDetailsList());
+		openSession.close();
+	}
+	
+	@Test
+	public void insertCallProcedureRecord() throws IOException {
+		java.util.Date date = new java.util.Date();          // 获取一个Date对象
+        Timestamp timeStamp = new Timestamp(date.getTime());     
+		MybatisUtils mybatisUtils = new MybatisUtils();
+		SqlSession openSession;
+		openSession = mybatisUtils.getSqlSession();
+		DetectionRecordDao mapper = openSession.getMapper(DetectionRecordDao.class);
+		Map<String,Object>map=new HashMap<String,Object>();
+		map.put("wheelId", "H63-2305");
+		map.put("repairRank", "三级");
+		map.put("aBearingNum", "5-15-5");
+		map.put("bBearingNum", "5-15-1");
+		map.put("detectionTime", timeStamp);
+		map.put("tBedNum", "RUN001");
+		map.put("savePath", "/2018/04/");
+		map.put("pdfFile", "cc.pdf");
+		map.put("bgmFile", "cc.bgm");
+		map.put("detectionData", "IN0:A3,35.28,50.55,0.41,0.00,0.00,4.00,合格,无,IN0:A2,36.28,50.55,0.41,0.00,0.00,4.00,合格2,无,");
+		
+		int reslut = mapper.insertCallProcedureRecord(map);
+		openSession.commit();
+		System.out.println("插入返回值："+reslut);
+		
 		openSession.close();
 	}
 

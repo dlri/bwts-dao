@@ -17,5 +17,7 @@ public interface DetectionRecordDao {
 	
 	public long queryDetectionRecordTotal(Map<String,Object> map);
 	
+	public int insertCallProcedureRecord(Map<String,Object> map);
+	
 	
 }
