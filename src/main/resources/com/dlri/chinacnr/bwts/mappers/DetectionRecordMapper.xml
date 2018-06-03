@@ -86,6 +86,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		 from detection_record d left join detection_details t
 		 on d.id=t.f_drid
 		<where>
+			<if test="tBedName!=null">
+				and d.tbed_num= #{tBedName}
+			</if>
 			<if test="wheelCode!=null">
 				and d.wheel_id like concat('%',#{wheelCode},'%')
 			</if>
@@ -106,6 +109,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="queryDetectionRecordTotal" parameterType="Map" resultType="long">
 		select count(id) from detection_record d 
 		<where>
+			<if test="tBedName!=null">
+				and d.tbed_num= #{tBedName}
+			</if>
 			<if test="wheelCode!=null">
 				and d.wheel_id like concat('%',#{wheelCode},'%')
 			</if>
