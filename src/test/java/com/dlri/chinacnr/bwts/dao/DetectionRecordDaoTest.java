@@ -24,7 +24,7 @@ public class DetectionRecordDaoTest {
 		dr.setaBearingNum("5-15-3");
 		dr.setbBearingNum("5-15-1");
 		dr.setDetectionTime("20180303094041");
-		dr.settBedType("跑合台");
+		dr.setChannelNum(2);;
 		dr.settBedNum("RUN001");
 		dr.setSavePath("D://test");
 		dr.setPdfFile("cc.pdf");
@@ -69,6 +69,7 @@ public class DetectionRecordDaoTest {
 		map.put("aBearingNum", "5-15-5");
 		map.put("bBearingNum", "5-15-1");
 		map.put("detectionTime", timeStamp);
+		map.put("channelNum", 2);
 		map.put("tBedNum", "RUN001");
 		map.put("savePath", "/2018/04/");
 		map.put("pdfFile", "cc.pdf");

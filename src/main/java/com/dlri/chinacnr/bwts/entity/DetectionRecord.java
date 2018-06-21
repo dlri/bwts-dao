@@ -14,8 +14,14 @@ public class DetectionRecord {
 	private String aBearingNum;//A侧轴承编号
 	private String bBearingNum;//B侧轴承编号
 	private String detectionTime;//检测时间
-	private String tBedType;//试验台类型
+	private int channelNum; //通道记录数
 	private String tBedNum;//试验台编号
+	public int getChannelNum() {
+		return channelNum;
+	}
+	public void setChannelNum(int channelNum) {
+		this.channelNum = channelNum;
+	}
 	private String savePath;//存放路径
 	private String pdfFile;//PDF文件
 	private String bgmFile;//BGM文件
@@ -56,12 +62,6 @@ public class DetectionRecord {
 	public void setDetectionTime(String detectionTime) {
 		this.detectionTime = detectionTime;
 	}
-	public String gettBedType() {
-		return tBedType;
-	}
-	public void settBedType(String tBedType) {
-		this.tBedType = tBedType;
-	}
 	public String gettBedNum() {
 		return tBedNum;
 	}
@@ -97,7 +97,7 @@ public class DetectionRecord {
 	public String toString() {
 		return "DetectionRecord [id=" + id + ", wheelId=" + wheelId + ", repairRank=" + repairRank + ", aBearingNum="
 				+ aBearingNum + ", bBearingNum=" + bBearingNum + ", detectionTime=" + detectionTime + ", tBedType="
-				+ tBedType + ", tBedNum=" + tBedNum + ", savePath=" + savePath + ", pdfFile=" + pdfFile + ", bgmFile="
+				+ channelNum + ", tBedNum=" + tBedNum + ", savePath=" + savePath + ", pdfFile=" + pdfFile + ", bgmFile="
 				+ bgmFile + "]";
 	}
 

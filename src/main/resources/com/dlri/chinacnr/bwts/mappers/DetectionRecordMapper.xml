@@ -3,6 +3,10 @@
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.dlri.chinacnr.bwts.dao.DetectionRecordDao">
+	<resultMap type="com.dlri.chinacnr.bwts.entity.RecordTotal" id="recordTotal">
+		<result property="total" column="total"/>
+		<result property="sumDetails" column="sumDetails" />
+	</resultMap>
 	<!--该结果集映射只映射基本属性，没有映射集合 -->  
 	<resultMap type="com.dlri.chinacnr.bwts.entity.DetectionRecord" id="detectionRecordResult">
 		<id property="id" column="id"/>
@@ -11,7 +15,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result property="aBearingNum" column="a_bearing_num"/>
 		<result property="bBearingNum" column="b_bearing_num"/>
 		<result property="detectionTime" column="detection_time"/>
-		<result property="tBedType" column="tbed_type"/>
+		<result property="channelNum" column="channel_num"/>
 		<result property="tBedNum" column="tbed_num"/>
 		<result property="savePath" column="save_path"/>
 		<result property="pdfFile" column="pdf_file"/>
@@ -26,7 +30,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result property="aBearingNum" column="a_bearing_num"/>
 		<result property="bBearingNum" column="b_bearing_num"/>
 		<result property="detectionTime" column="detection_time"/>
-		<result property="tBedType" column="tbed_type"/>
+		<result property="channelNum" column="channel_num"/>
 		<result property="tBedNum" column="tbed_num"/>
 		<result property="savePath" column="save_path"/>
 		<result property="pdfFile" column="pdf_file"/>
@@ -37,14 +41,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<select id="queryOneDetectionRecord" parameterType="long" resultMap="detectionRecordResult">
 		select d.id,d.wheel_id,d.repair_rank,d.a_bearing_num,d.b_bearing_num,d.detection_time,
-		d.tbed_type,d.tbed_num,d.save_path,d.pdf_file,d.bgm_file
+		d.channel_num,d.tbed_num,d.save_path,d.pdf_file,d.bgm_file
 		 from detection_record d
 		 where d.id=#{id}
 	</select>
 	
 	<select id="queryDetectionRecordWithDetails" parameterType="long" resultMap="detectionRecordWithDetailsResult">
 		select d.id,d.wheel_id,d.repair_rank,d.a_bearing_num,d.b_bearing_num,d.detection_time,
-		d.tbed_type,d.tbed_num,d.save_path,d.pdf_file,d.bgm_file,
+		d.channel_num,d.tbed_num,d.save_path,d.pdf_file,d.bgm_file,
 		t.id tid,t.channel_name,t.valid_value,t.peak_value,t.vibration_severity,t.vibration_energy,
 		t.peak_num,t.ripple_factor,t.evaluation,t.non_qualified,t.f_drid
 		 from detection_record d left join detection_details t
@@ -55,8 +59,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<!-- userGeneratedKeys和keyProperty属性可以让插入后对象获得本身自己的id -->
 	<insert id="insertOneDetectionRecord" parameterType="DetectionRecord" useGeneratedKeys="true" keyProperty="id" >
 		insert into detection_record  
-		(wheel_id,repair_rank,a_bearing_num,b_bearing_num,detection_time,tbed_type,tbed_num,save_path,pdf_file,bgm_file)  
-         values(#{wheelId},#{repairRank},#{aBearingNum},#{bBearingNum},#{detectionTime},#{tBedType},#{tBedNum},
+		(wheel_id,repair_rank,a_bearing_num,b_bearing_num,detection_time,channel_num,tbed_num,save_path,pdf_file,bgm_file)  
+         values(#{wheelId},#{repairRank},#{aBearingNum},#{bBearingNum},#{detectionTime},#{channelNum},#{tBedNum},
          #{savePath},#{pdfFile},#{bgmFile}) 
 	</insert>
 	<!-- 一对多插入存储过程 -->
@@ -68,6 +72,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
                #{aBearingNum,mode=IN,jdbcType=VARCHAR},
                #{bBearingNum,mode=IN,jdbcType=VARCHAR},
                #{detectionTime,mode=IN,jdbcType=TIMESTAMP},
+               #{channelNum,mode=IN,jdbcType=INTEGER},
                #{tBedNum,mode=IN,jdbcType=VARCHAR},
                #{savePath,mode=IN,jdbcType=VARCHAR},
                #{pdfFile,mode=IN,jdbcType=VARCHAR},
@@ -80,7 +85,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<select id="queryDetectionRecordByCondition" parameterType="Map" resultMap="detectionRecordWithDetailsResult">
 		select d.id,d.wheel_id,d.repair_rank,d.a_bearing_num,d.b_bearing_num,d.detection_time,
-		d.tbed_type,d.tbed_num,d.save_path,d.pdf_file,d.bgm_file,
+		d.channel_num,d.tbed_num,d.save_path,d.pdf_file,d.bgm_file,
 		t.id tid,t.channel_name,t.valid_value,t.peak_value,t.vibration_severity,t.vibration_energy,
 		t.peak_num,t.ripple_factor,t.evaluation,t.non_qualified,t.f_drid
 		 from detection_record d left join detection_details t
@@ -106,8 +111,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
                      #{rows};
 	</select>
 	
-	<select id="queryDetectionRecordTotal" parameterType="Map" resultType="long">
-		select count(id) from detection_record d 
+	<select id="queryDetectionRecordTotal" parameterType="Map" resultMap="recordTotal">
+		select count(id) as total,sum(d.channel_num) as sumDetails from detection_record d 
 		<where>
 			<if test="tBedName!=null">
 				and d.tbed_num= #{tBedName}
@@ -124,6 +129,18 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  			<if test="endDate != null and endDate != ''">AND d.detection_time <![CDATA[<=]]>#{endDate}</if>
 		</where>
 		
+	</select>
+	<!-- 查询不同类别的最近一条记录 -->
+	<select id="queryRecordByLastTime"  resultMap="detectionRecordWithDetailsResult">
+		select  d.id,d.wheel_id,d.repair_rank,d.a_bearing_num,d.b_bearing_num,d.detection_time,
+		d.channel_num,d.tbed_num,d.save_path,d.pdf_file,d.bgm_file,
+		t.id tid,t.channel_name,t.valid_value,t.peak_value,t.vibration_severity,t.vibration_energy,
+		t.peak_num,t.ripple_factor,t.evaluation,t.non_qualified,t.f_drid
+from (
+select a.* from detection_record a,(select tbed_num,max(detection_time) detection_time from detection_record group by tbed_num) b 
+where a.detection_time = b.detection_time and a.tbed_num = b.tbed_num  order by a.tbed_num 
+) 
+d left join detection_details t on d.id=t.f_drid
 	</select>
 	
 </mapper> 
