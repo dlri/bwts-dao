@@ -1,0 +1,606 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuite tests="4" failures="0" name="com.dlri.chinacnr.bwts.dao.DetectionRecordDaoTest" time="0.25" errors="4" skipped="0">
+  <properties>
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
+    <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_152\jre\bin"/>
+    <property name="java.vm.version" value="25.152-b16"/>
+    <property name="java.vm.vendor" value="Oracle Corporation"/>
+    <property name="maven.multiModuleProjectDirectory" value="F:\workspace\2018\new\bwts-parent"/>
+    <property name="java.vendor.url" value="http://java.oracle.com/"/>
+    <property name="path.separator" value=";"/>
+    <property name="guice.disable.misplaced.annotation.check" value="true"/>
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
+    <property name="file.encoding.pkg" value="sun.io"/>
+    <property name="user.script" value=""/>
+    <property name="user.country" value="CN"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="sun.os.patch.level" value=""/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="user.dir" value="F:\workspace\2018\new\bwts-parent"/>
+    <property name="java.runtime.version" value="1.8.0_152-b16"/>
+    <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
+    <property name="java.endorsed.dirs" value="C:\Program Files\Java\jdk1.8.0_152\jre\lib\endorsed"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.io.tmpdir" value="C:\Users\JH\AppData\Local\Temp\"/>
+    <property name="line.separator" value="
+"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="user.variant" value=""/>
+    <property name="os.name" value="Windows 10"/>
+    <property name="classworlds.conf" value="F:\workspace\2018\new\.metadata\.plugins\org.eclipse.m2e.launching\launches\m2conf7832770188390827331.tmp"/>
+    <property name="sun.jnu.encoding" value="GBK"/>
+    <property name="java.library.path" value="C:\Program Files\Java\jdk1.8.0_152\jre\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:/Program Files/Java/jre1.8.0_152/bin/server;C:/Program Files/Java/jre1.8.0_152/bin;C:/Program Files/Java/jre1.8.0_152/lib/amd64;C:\ProgramData\Oracle\Java\javapath;C:\app\JH\product\11.2.0\client_1\bin;C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\windows\system32;C:\windows;C:\windows\System32\Wbem;C:\windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;c:\Program Files\Intel\WiFi\bin\;c:\Program Files\Common Files\Intel\WirelessCommon\;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files\Java\jdk1.8.0_152\bin;C:\Program Files (x86)\Git\cmd;c:\Program Files (x86)\Microsoft SQL Server\100\Tools\Binn\;c:\Program Files (x86)\Microsoft SQL Server\100\DTS\Binn\;c:\Program Files (x86)\Microsoft SQL Server\100\Tools\Binn\VSShell\Common7\IDE\;F:\mysql-5.7.20-winx64\bin;C:\Program Files\nodejs\;F:\mysql-5.7.20-winx64\bin;C:\WINDOWS\System32\OpenSSH\;C:\Users\JH\AppData\Roaming\npm;%USERPROFILE%\AppData\Local\Microsoft\WindowsApps;;C:\Users\JH\Desktop;;."/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="java.class.version" value="52.0"/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="os.version" value="10.0"/>
+    <property name="user.home" value="C:\Users\JH"/>
+    <property name="user.timezone" value="Asia/Shanghai"/>
+    <property name="java.awt.printerjob" value="sun.awt.windows.WPrinterJob"/>
+    <property name="java.specification.version" value="1.8"/>
+    <property name="file.encoding" value="GBK"/>
+    <property name="user.name" value="JH"/>
+    <property name="java.class.path" value="C:\Users\JH\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_1.9.1.20180912-1600\jars\plexus-classworlds-2.5.2.jar"/>
+    <property name="java.vm.specification.version" value="1.8"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="java.home" value="C:\Program Files\Java\jdk1.8.0_152\jre"/>
+    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher -B install"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="user.language" value="zh"/>
+    <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
+    <property name="java.vm.info" value="mixed mode"/>
+    <property name="java.version" value="1.8.0_152"/>
+    <property name="java.ext.dirs" value="C:\Program Files\Java\jdk1.8.0_152\jre\lib\ext;C:\WINDOWS\Sun\Java\lib\ext"/>
+    <property name="sun.boot.class.path" value="C:\Program Files\Java\jdk1.8.0_152\jre\lib\resources.jar;C:\Program Files\Java\jdk1.8.0_152\jre\lib\rt.jar;C:\Program Files\Java\jdk1.8.0_152\jre\lib\sunrsasign.jar;C:\Program Files\Java\jdk1.8.0_152\jre\lib\jsse.jar;C:\Program Files\Java\jdk1.8.0_152\jre\lib\jce.jar;C:\Program Files\Java\jdk1.8.0_152\jre\lib\charsets.jar;C:\Program Files\Java\jdk1.8.0_152\jre\lib\jfr.jar;C:\Program Files\Java\jdk1.8.0_152\jre\classes"/>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="maven.home" value="F:\workspace\2018\new\bwts-parent\EMBEDDED"/>
+    <property name="file.separator" value="\"/>
+    <property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="sun.desktop" value="windows"/>
+    <property name="sun.cpu.isalist" value="amd64"/>
+  </properties>
+  <testcase classname="com.dlri.chinacnr.bwts.dao.DetectionRecordDaoTest" name="insertCallProcedureRecord" time="0.01">
+    <error message="Type interface com.dlri.chinacnr.bwts.dao.DetectionRecordDao is not known to the MapperRegistry." type="org.apache.ibatis.binding.BindingException">org.apache.ibatis.binding.BindingException: Type interface com.dlri.chinacnr.bwts.dao.DetectionRecordDao is not known to the MapperRegistry.
+	at org.apache.ibatis.binding.MapperRegistry.getMapper(MapperRegistry.java:47)
+	at org.apache.ibatis.session.Configuration.getMapper(Configuration.java:745)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.getMapper(DefaultSqlSession.java:292)
+	at com.dlri.chinacnr.bwts.dao.DetectionRecordDaoTest.insertCallProcedureRecord(DetectionRecordDaoTest.java:65)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:252)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:141)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:112)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:189)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:165)
+	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
+</error>
+    <system-out>[DEBUG] 2018-10-07 19:55:34,505 method:org.apache.ibatis.io.DefaultVFS.findJarForResource(DefaultVFS.java:222)
+Find JAR URL: file:/F:/workspace/2018/new/bwts-dao/target/classes/com/dlri/chinacnr/bwts/entity
+[DEBUG] 2018-10-07 19:55:34,506 method:org.apache.ibatis.io.DefaultVFS.findJarForResource(DefaultVFS.java:248)
+Not a JAR: file:/F:/workspace/2018/new/bwts-dao/target/classes/com/dlri/chinacnr/bwts/entity
+[DEBUG] 2018-10-07 19:55:34,507 method:org.apache.ibatis.io.DefaultVFS.list(DefaultVFS.java:102)
+Reader entry: DetectionDetails.class
+[DEBUG] 2018-10-07 19:55:34,508 method:org.apache.ibatis.io.DefaultVFS.list(DefaultVFS.java:102)
+Reader entry: DetectionRecord.class
+[DEBUG] 2018-10-07 19:55:34,509 method:org.apache.ibatis.io.DefaultVFS.list(DefaultVFS.java:102)
+Reader entry: DynRecord.class
+[DEBUG] 2018-10-07 19:55:34,509 method:org.apache.ibatis.io.DefaultVFS.list(DefaultVFS.java:102)
+Reader entry: Page.class
+[DEBUG] 2018-10-07 19:55:34,510 method:org.apache.ibatis.io.DefaultVFS.list(DefaultVFS.java:102)
+Reader entry: Protocol.class
+[DEBUG] 2018-10-07 19:55:34,510 method:org.apache.ibatis.io.DefaultVFS.list(DefaultVFS.java:102)
+Reader entry: RecordTotal.class
+[DEBUG] 2018-10-07 19:55:34,511 method:org.apache.ibatis.io.DefaultVFS.list(DefaultVFS.java:102)
+Reader entry: ScheduleJob.class
+[DEBUG] 2018-10-07 19:55:34,512 method:org.apache.ibatis.io.DefaultVFS.list(DefaultVFS.java:102)
+Reader entry: Statistical.class
+[DEBUG] 2018-10-07 19:55:34,513 method:org.apache.ibatis.io.DefaultVFS.list(DefaultVFS.java:102)
+Reader entry: User.class
+[DEBUG] 2018-10-07 19:55:34,513 method:org.apache.ibatis.io.DefaultVFS.list(DefaultVFS.java:113)
+Listing file:/F:/workspace/2018/new/bwts-dao/target/classes/com/dlri/chinacnr/bwts/entity
+[DEBUG] 2018-10-07 19:55:34,514 method:org.apache.ibatis.io.DefaultVFS.findJarForResource(DefaultVFS.java:222)
+Find JAR URL: file:/F:/workspace/2018/new/bwts-dao/target/classes/com/dlri/chinacnr/bwts/entity/DetectionDetails.class
+[DEBUG] 2018-10-07 19:55:34,514 method:org.apache.ibatis.io.DefaultVFS.findJarForResource(DefaultVFS.java:248)
+Not a JAR: file:/F:/workspace/2018/new/bwts-dao/target/classes/com/dlri/chinacnr/bwts/entity/DetectionDetails.class
+[DEBUG] 2018-10-07 19:55:34,524 method:org.apache.ibatis.io.DefaultVFS.list(DefaultVFS.java:102)
+Reader entry: 漱壕&amp;#0;&amp;#0;&amp;#0;1&amp;#0;?
+[DEBUG] 2018-10-07 19:55:34,525 method:org.apache.ibatis.io.DefaultVFS.findJarForResource(DefaultVFS.java:222)
+Find JAR URL: file:/F:/workspace/2018/new/bwts-dao/target/classes/com/dlri/chinacnr/bwts/entity/DetectionRecord.class
+[DEBUG] 2018-10-07 19:55:34,525 method:org.apache.ibatis.io.DefaultVFS.findJarForResource(DefaultVFS.java:248)
+Not a JAR: file:/F:/workspace/2018/new/bwts-dao/target/classes/com/dlri/chinacnr/bwts/entity/DetectionRecord.class
+[DEBUG] 2018-10-07 19:55:34,527 method:org.apache.ibatis.io.DefaultVFS.list(DefaultVFS.java:102)
+Reader entry: 漱壕&amp;#0;&amp;#0;&amp;#0;1&amp;#0;?
+[DEBUG] 2018-10-07 19:55:34,527 method:org.apache.ibatis.io.DefaultVFS.findJarForResource(DefaultVFS.java:222)
+Find JAR URL: file:/F:/workspace/2018/new/bwts-dao/target/classes/com/dlri/chinacnr/bwts/entity/DynRecord.class
+[DEBUG] 2018-10-07 19:55:34,527 method:org.apache.ibatis.io.DefaultVFS.findJarForResource(DefaultVFS.java:248)
+Not a JAR: file:/F:/workspace/2018/new/bwts-dao/target/classes/com/dlri/chinacnr/bwts/entity/DynRecord.class
+[DEBUG] 2018-10-07 19:55:34,528 method:org.apache.ibatis.io.DefaultVFS.list(DefaultVFS.java:102)
+Reader entry: 漱壕&amp;#0;&amp;#0;&amp;#0;1&amp;#1;&amp;#4;
+[DEBUG] 2018-10-07 19:55:34,529 method:org.apache.ibatis.io.DefaultVFS.findJarForResource(DefaultVFS.java:222)
+Find JAR URL: file:/F:/workspace/2018/new/bwts-dao/target/classes/com/dlri/chinacnr/bwts/entity/Page.class
+[DEBUG] 2018-10-07 19:55:34,529 method:org.apache.ibatis.io.DefaultVFS.findJarForResource(DefaultVFS.java:248)
+Not a JAR: file:/F:/workspace/2018/new/bwts-dao/target/classes/com/dlri/chinacnr/bwts/entity/Page.class
+[DEBUG] 2018-10-07 19:55:34,530 method:org.apache.ibatis.io.DefaultVFS.list(DefaultVFS.java:102)
+Reader entry: 漱壕&amp;#0;&amp;#0;&amp;#0;1&amp;#0;#
+[DEBUG] 2018-10-07 19:55:34,530 method:org.apache.ibatis.io.DefaultVFS.findJarForResource(DefaultVFS.java:222)
+Find JAR URL: file:/F:/workspace/2018/new/bwts-dao/target/classes/com/dlri/chinacnr/bwts/entity/Protocol.class
+[DEBUG] 2018-10-07 19:55:34,531 method:org.apache.ibatis.io.DefaultVFS.findJarForResource(DefaultVFS.java:248)
+Not a JAR: file:/F:/workspace/2018/new/bwts-dao/target/classes/com/dlri/chinacnr/bwts/entity/Protocol.class
+[DEBUG] 2018-10-07 19:55:34,532 method:org.apache.ibatis.io.DefaultVFS.list(DefaultVFS.java:102)
+Reader entry: 漱壕&amp;#0;&amp;#0;&amp;#0;1&amp;#0;V
+[DEBUG] 2018-10-07 19:55:34,532 method:org.apache.ibatis.io.DefaultVFS.findJarForResource(DefaultVFS.java:222)
+Find JAR URL: file:/F:/workspace/2018/new/bwts-dao/target/classes/com/dlri/chinacnr/bwts/entity/RecordTotal.class
+[DEBUG] 2018-10-07 19:55:34,533 method:org.apache.ibatis.io.DefaultVFS.findJarForResource(DefaultVFS.java:248)
+Not a JAR: file:/F:/workspace/2018/new/bwts-dao/target/classes/com/dlri/chinacnr/bwts/entity/RecordTotal.class
+[DEBUG] 2018-10-07 19:55:34,534 method:org.apache.ibatis.io.DefaultVFS.list(DefaultVFS.java:102)
+Reader entry: 漱壕&amp;#0;&amp;#0;&amp;#0;1&amp;#0;&amp;#29;
+[DEBUG] 2018-10-07 19:55:34,534 method:org.apache.ibatis.io.DefaultVFS.findJarForResource(DefaultVFS.java:222)
+Find JAR URL: file:/F:/workspace/2018/new/bwts-dao/target/classes/com/dlri/chinacnr/bwts/entity/ScheduleJob.class
+[DEBUG] 2018-10-07 19:55:34,535 method:org.apache.ibatis.io.DefaultVFS.findJarForResource(DefaultVFS.java:248)
+Not a JAR: file:/F:/workspace/2018/new/bwts-dao/target/classes/com/dlri/chinacnr/bwts/entity/ScheduleJob.class
+[DEBUG] 2018-10-07 19:55:34,536 method:org.apache.ibatis.io.DefaultVFS.list(DefaultVFS.java:102)
+Reader entry: 漱壕&amp;#0;&amp;#0;&amp;#0;1&amp;#0;J
+[DEBUG] 2018-10-07 19:55:34,536 method:org.apache.ibatis.io.DefaultVFS.findJarForResource(DefaultVFS.java:222)
+Find JAR URL: file:/F:/workspace/2018/new/bwts-dao/target/classes/com/dlri/chinacnr/bwts/entity/Statistical.class
+[DEBUG] 2018-10-07 19:55:34,536 method:org.apache.ibatis.io.DefaultVFS.findJarForResource(DefaultVFS.java:248)
+Not a JAR: file:/F:/workspace/2018/new/bwts-dao/target/classes/com/dlri/chinacnr/bwts/entity/Statistical.class
+[DEBUG] 2018-10-07 19:55:34,537 method:org.apache.ibatis.io.DefaultVFS.list(DefaultVFS.java:102)
+Reader entry: 漱壕&amp;#0;&amp;#0;&amp;#0;1&amp;#0;(
+[DEBUG] 2018-10-07 19:55:34,537 method:org.apache.ibatis.io.DefaultVFS.findJarForResource(DefaultVFS.java:222)
+Find JAR URL: file:/F:/workspace/2018/new/bwts-dao/target/classes/com/dlri/chinacnr/bwts/entity/User.class
+[DEBUG] 2018-10-07 19:55:34,538 method:org.apache.ibatis.io.DefaultVFS.findJarForResource(DefaultVFS.java:248)
+Not a JAR: file:/F:/workspace/2018/new/bwts-dao/target/classes/com/dlri/chinacnr/bwts/entity/User.class
+[DEBUG] 2018-10-07 19:55:34,539 method:org.apache.ibatis.io.DefaultVFS.list(DefaultVFS.java:102)
+Reader entry: 漱壕&amp;#0;&amp;#0;&amp;#0;1&amp;#0;_
+[DEBUG] 2018-10-07 19:55:34,540 method:org.apache.ibatis.io.ResolverUtil.addIfMatching(ResolverUtil.java:256)
+Checking to see if class com.dlri.chinacnr.bwts.entity.DetectionDetails matches criteria [is assignable to Object]
+[DEBUG] 2018-10-07 19:55:34,540 method:org.apache.ibatis.io.ResolverUtil.addIfMatching(ResolverUtil.java:256)
+Checking to see if class com.dlri.chinacnr.bwts.entity.DetectionRecord matches criteria [is assignable to Object]
+[DEBUG] 2018-10-07 19:55:34,540 method:org.apache.ibatis.io.ResolverUtil.addIfMatching(ResolverUtil.java:256)
+Checking to see if class com.dlri.chinacnr.bwts.entity.DynRecord matches criteria [is assignable to Object]
+[DEBUG] 2018-10-07 19:55:34,541 method:org.apache.ibatis.io.ResolverUtil.addIfMatching(ResolverUtil.java:256)
+Checking to see if class com.dlri.chinacnr.bwts.entity.Page matches criteria [is assignable to Object]
+[DEBUG] 2018-10-07 19:55:34,541 method:org.apache.ibatis.io.ResolverUtil.addIfMatching(ResolverUtil.java:256)
+Checking to see if class com.dlri.chinacnr.bwts.entity.Protocol matches criteria [is assignable to Object]
+[DEBUG] 2018-10-07 19:55:34,541 method:org.apache.ibatis.io.ResolverUtil.addIfMatching(ResolverUtil.java:256)
+Checking to see if class com.dlri.chinacnr.bwts.entity.RecordTotal matches criteria [is assignable to Object]
+[DEBUG] 2018-10-07 19:55:34,541 method:org.apache.ibatis.io.ResolverUtil.addIfMatching(ResolverUtil.java:256)
+Checking to see if class com.dlri.chinacnr.bwts.entity.ScheduleJob matches criteria [is assignable to Object]
+[DEBUG] 2018-10-07 19:55:34,542 method:org.apache.ibatis.io.ResolverUtil.addIfMatching(ResolverUtil.java:256)
+Checking to see if class com.dlri.chinacnr.bwts.entity.Statistical matches criteria [is assignable to Object]
+[DEBUG] 2018-10-07 19:55:34,542 method:org.apache.ibatis.io.ResolverUtil.addIfMatching(ResolverUtil.java:256)
+Checking to see if class com.dlri.chinacnr.bwts.entity.User matches criteria [is assignable to Object]
+Logging initialized using &apos;class org.apache.ibatis.logging.stdout.StdOutImpl&apos; adapter.
+</system-out>
+  </testcase>
+  <testcase classname="com.dlri.chinacnr.bwts.dao.DetectionRecordDaoTest" name="testInsertOneDetectionRecord" time="0.061">
+    <error message="Type interface com.dlri.chinacnr.bwts.dao.DetectionRecordDao is not known to the MapperRegistry." type="org.apache.ibatis.binding.BindingException">org.apache.ibatis.binding.BindingException: Type interface com.dlri.chinacnr.bwts.dao.DetectionRecordDao is not known to the MapperRegistry.
+	at org.apache.ibatis.binding.MapperRegistry.getMapper(MapperRegistry.java:47)
+	at org.apache.ibatis.session.Configuration.getMapper(Configuration.java:745)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.getMapper(DefaultSqlSession.java:292)
+	at com.dlri.chinacnr.bwts.dao.impl.DetectionRecordDaoImpl.insertOneDetectionRecord(DetectionRecordDaoImpl.java:35)
+	at com.dlri.chinacnr.bwts.dao.DetectionRecordDaoTest.testInsertOneDetectionRecord(DetectionRecordDaoTest.java:32)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:252)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:141)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:112)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:189)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:165)
+	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
+</error>
+    <system-out>[DEBUG] 2018-10-07 19:55:34,589 method:org.apache.ibatis.io.DefaultVFS.findJarForResource(DefaultVFS.java:222)
+Find JAR URL: file:/F:/workspace/2018/new/bwts-dao/target/classes/com/dlri/chinacnr/bwts/entity
+[DEBUG] 2018-10-07 19:55:34,589 method:org.apache.ibatis.io.DefaultVFS.findJarForResource(DefaultVFS.java:248)
+Not a JAR: file:/F:/workspace/2018/new/bwts-dao/target/classes/com/dlri/chinacnr/bwts/entity
+[DEBUG] 2018-10-07 19:55:34,591 method:org.apache.ibatis.io.DefaultVFS.list(DefaultVFS.java:102)
+Reader entry: DetectionDetails.class
+[DEBUG] 2018-10-07 19:55:34,591 method:org.apache.ibatis.io.DefaultVFS.list(DefaultVFS.java:102)
+Reader entry: DetectionRecord.class
+[DEBUG] 2018-10-07 19:55:34,592 method:org.apache.ibatis.io.DefaultVFS.list(DefaultVFS.java:102)
+Reader entry: DynRecord.class
+[DEBUG] 2018-10-07 19:55:34,593 method:org.apache.ibatis.io.DefaultVFS.list(DefaultVFS.java:102)
+Reader entry: Page.class
+[DEBUG] 2018-10-07 19:55:34,594 method:org.apache.ibatis.io.DefaultVFS.list(DefaultVFS.java:102)
+Reader entry: Protocol.class
+[DEBUG] 2018-10-07 19:55:34,594 method:org.apache.ibatis.io.DefaultVFS.list(DefaultVFS.java:102)
+Reader entry: RecordTotal.class
+[DEBUG] 2018-10-07 19:55:34,595 method:org.apache.ibatis.io.DefaultVFS.list(DefaultVFS.java:102)
+Reader entry: ScheduleJob.class
+[DEBUG] 2018-10-07 19:55:34,595 method:org.apache.ibatis.io.DefaultVFS.list(DefaultVFS.java:102)
+Reader entry: Statistical.class
+[DEBUG] 2018-10-07 19:55:34,596 method:org.apache.ibatis.io.DefaultVFS.list(DefaultVFS.java:102)
+Reader entry: User.class
+[DEBUG] 2018-10-07 19:55:34,596 method:org.apache.ibatis.io.DefaultVFS.list(DefaultVFS.java:113)
+Listing file:/F:/workspace/2018/new/bwts-dao/target/classes/com/dlri/chinacnr/bwts/entity
+[DEBUG] 2018-10-07 19:55:34,597 method:org.apache.ibatis.io.DefaultVFS.findJarForResource(DefaultVFS.java:222)
+Find JAR URL: file:/F:/workspace/2018/new/bwts-dao/target/classes/com/dlri/chinacnr/bwts/entity/DetectionDetails.class
+[DEBUG] 2018-10-07 19:55:34,597 method:org.apache.ibatis.io.DefaultVFS.findJarForResource(DefaultVFS.java:248)
+Not a JAR: file:/F:/workspace/2018/new/bwts-dao/target/classes/com/dlri/chinacnr/bwts/entity/DetectionDetails.class
+[DEBUG] 2018-10-07 19:55:34,598 method:org.apache.ibatis.io.DefaultVFS.list(DefaultVFS.java:102)
+Reader entry: 漱壕&amp;#0;&amp;#0;&amp;#0;1&amp;#0;?
+[DEBUG] 2018-10-07 19:55:34,598 method:org.apache.ibatis.io.DefaultVFS.findJarForResource(DefaultVFS.java:222)
+Find JAR URL: file:/F:/workspace/2018/new/bwts-dao/target/classes/com/dlri/chinacnr/bwts/entity/DetectionRecord.class
+[DEBUG] 2018-10-07 19:55:34,599 method:org.apache.ibatis.io.DefaultVFS.findJarForResource(DefaultVFS.java:248)
+Not a JAR: file:/F:/workspace/2018/new/bwts-dao/target/classes/com/dlri/chinacnr/bwts/entity/DetectionRecord.class
+[DEBUG] 2018-10-07 19:55:34,599 method:org.apache.ibatis.io.DefaultVFS.list(DefaultVFS.java:102)
+Reader entry: 漱壕&amp;#0;&amp;#0;&amp;#0;1&amp;#0;?
+[DEBUG] 2018-10-07 19:55:34,600 method:org.apache.ibatis.io.DefaultVFS.findJarForResource(DefaultVFS.java:222)
+Find JAR URL: file:/F:/workspace/2018/new/bwts-dao/target/classes/com/dlri/chinacnr/bwts/entity/DynRecord.class
+[DEBUG] 2018-10-07 19:55:34,600 method:org.apache.ibatis.io.DefaultVFS.findJarForResource(DefaultVFS.java:248)
+Not a JAR: file:/F:/workspace/2018/new/bwts-dao/target/classes/com/dlri/chinacnr/bwts/entity/DynRecord.class
+[DEBUG] 2018-10-07 19:55:34,601 method:org.apache.ibatis.io.DefaultVFS.list(DefaultVFS.java:102)
+Reader entry: 漱壕&amp;#0;&amp;#0;&amp;#0;1&amp;#1;&amp;#4;
+[DEBUG] 2018-10-07 19:55:34,602 method:org.apache.ibatis.io.DefaultVFS.findJarForResource(DefaultVFS.java:222)
+Find JAR URL: file:/F:/workspace/2018/new/bwts-dao/target/classes/com/dlri/chinacnr/bwts/entity/Page.class
+[DEBUG] 2018-10-07 19:55:34,602 method:org.apache.ibatis.io.DefaultVFS.findJarForResource(DefaultVFS.java:248)
+Not a JAR: file:/F:/workspace/2018/new/bwts-dao/target/classes/com/dlri/chinacnr/bwts/entity/Page.class
+[DEBUG] 2018-10-07 19:55:34,603 method:org.apache.ibatis.io.DefaultVFS.list(DefaultVFS.java:102)
+Reader entry: 漱壕&amp;#0;&amp;#0;&amp;#0;1&amp;#0;#
+[DEBUG] 2018-10-07 19:55:34,604 method:org.apache.ibatis.io.DefaultVFS.findJarForResource(DefaultVFS.java:222)
+Find JAR URL: file:/F:/workspace/2018/new/bwts-dao/target/classes/com/dlri/chinacnr/bwts/entity/Protocol.class
+[DEBUG] 2018-10-07 19:55:34,604 method:org.apache.ibatis.io.DefaultVFS.findJarForResource(DefaultVFS.java:248)
+Not a JAR: file:/F:/workspace/2018/new/bwts-dao/target/classes/com/dlri/chinacnr/bwts/entity/Protocol.class
+[DEBUG] 2018-10-07 19:55:34,605 method:org.apache.ibatis.io.DefaultVFS.list(DefaultVFS.java:102)
+Reader entry: 漱壕&amp;#0;&amp;#0;&amp;#0;1&amp;#0;V
+[DEBUG] 2018-10-07 19:55:34,606 method:org.apache.ibatis.io.DefaultVFS.findJarForResource(DefaultVFS.java:222)
+Find JAR URL: file:/F:/workspace/2018/new/bwts-dao/target/classes/com/dlri/chinacnr/bwts/entity/RecordTotal.class
+[DEBUG] 2018-10-07 19:55:34,606 method:org.apache.ibatis.io.DefaultVFS.findJarForResource(DefaultVFS.java:248)
+Not a JAR: file:/F:/workspace/2018/new/bwts-dao/target/classes/com/dlri/chinacnr/bwts/entity/RecordTotal.class
+[DEBUG] 2018-10-07 19:55:34,607 method:org.apache.ibatis.io.DefaultVFS.list(DefaultVFS.java:102)
+Reader entry: 漱壕&amp;#0;&amp;#0;&amp;#0;1&amp;#0;&amp;#29;
+[DEBUG] 2018-10-07 19:55:34,608 method:org.apache.ibatis.io.DefaultVFS.findJarForResource(DefaultVFS.java:222)
+Find JAR URL: file:/F:/workspace/2018/new/bwts-dao/target/classes/com/dlri/chinacnr/bwts/entity/ScheduleJob.class
+[DEBUG] 2018-10-07 19:55:34,608 method:org.apache.ibatis.io.DefaultVFS.findJarForResource(DefaultVFS.java:248)
+Not a JAR: file:/F:/workspace/2018/new/bwts-dao/target/classes/com/dlri/chinacnr/bwts/entity/ScheduleJob.class
+[DEBUG] 2018-10-07 19:55:34,609 method:org.apache.ibatis.io.DefaultVFS.list(DefaultVFS.java:102)
+Reader entry: 漱壕&amp;#0;&amp;#0;&amp;#0;1&amp;#0;J
+[DEBUG] 2018-10-07 19:55:34,609 method:org.apache.ibatis.io.DefaultVFS.findJarForResource(DefaultVFS.java:222)
+Find JAR URL: file:/F:/workspace/2018/new/bwts-dao/target/classes/com/dlri/chinacnr/bwts/entity/Statistical.class
+[DEBUG] 2018-10-07 19:55:34,610 method:org.apache.ibatis.io.DefaultVFS.findJarForResource(DefaultVFS.java:248)
+Not a JAR: file:/F:/workspace/2018/new/bwts-dao/target/classes/com/dlri/chinacnr/bwts/entity/Statistical.class
+[DEBUG] 2018-10-07 19:55:34,610 method:org.apache.ibatis.io.DefaultVFS.list(DefaultVFS.java:102)
+Reader entry: 漱壕&amp;#0;&amp;#0;&amp;#0;1&amp;#0;(
+[DEBUG] 2018-10-07 19:55:34,611 method:org.apache.ibatis.io.DefaultVFS.findJarForResource(DefaultVFS.java:222)
+Find JAR URL: file:/F:/workspace/2018/new/bwts-dao/target/classes/com/dlri/chinacnr/bwts/entity/User.class
+[DEBUG] 2018-10-07 19:55:34,611 method:org.apache.ibatis.io.DefaultVFS.findJarForResource(DefaultVFS.java:248)
+Not a JAR: file:/F:/workspace/2018/new/bwts-dao/target/classes/com/dlri/chinacnr/bwts/entity/User.class
+[DEBUG] 2018-10-07 19:55:34,612 method:org.apache.ibatis.io.DefaultVFS.list(DefaultVFS.java:102)
+Reader entry: 漱壕&amp;#0;&amp;#0;&amp;#0;1&amp;#0;_
+[DEBUG] 2018-10-07 19:55:34,613 method:org.apache.ibatis.io.ResolverUtil.addIfMatching(ResolverUtil.java:256)
+Checking to see if class com.dlri.chinacnr.bwts.entity.DetectionDetails matches criteria [is assignable to Object]
+[DEBUG] 2018-10-07 19:55:34,613 method:org.apache.ibatis.io.ResolverUtil.addIfMatching(ResolverUtil.java:256)
+Checking to see if class com.dlri.chinacnr.bwts.entity.DetectionRecord matches criteria [is assignable to Object]
+[DEBUG] 2018-10-07 19:55:34,614 method:org.apache.ibatis.io.ResolverUtil.addIfMatching(ResolverUtil.java:256)
+Checking to see if class com.dlri.chinacnr.bwts.entity.DynRecord matches criteria [is assignable to Object]
+[DEBUG] 2018-10-07 19:55:34,614 method:org.apache.ibatis.io.ResolverUtil.addIfMatching(ResolverUtil.java:256)
+Checking to see if class com.dlri.chinacnr.bwts.entity.Page matches criteria [is assignable to Object]
+[DEBUG] 2018-10-07 19:55:34,614 method:org.apache.ibatis.io.ResolverUtil.addIfMatching(ResolverUtil.java:256)
+Checking to see if class com.dlri.chinacnr.bwts.entity.Protocol matches criteria [is assignable to Object]
+[DEBUG] 2018-10-07 19:55:34,614 method:org.apache.ibatis.io.ResolverUtil.addIfMatching(ResolverUtil.java:256)
+Checking to see if class com.dlri.chinacnr.bwts.entity.RecordTotal matches criteria [is assignable to Object]
+[DEBUG] 2018-10-07 19:55:34,615 method:org.apache.ibatis.io.ResolverUtil.addIfMatching(ResolverUtil.java:256)
+Checking to see if class com.dlri.chinacnr.bwts.entity.ScheduleJob matches criteria [is assignable to Object]
+[DEBUG] 2018-10-07 19:55:34,615 method:org.apache.ibatis.io.ResolverUtil.addIfMatching(ResolverUtil.java:256)
+Checking to see if class com.dlri.chinacnr.bwts.entity.Statistical matches criteria [is assignable to Object]
+[DEBUG] 2018-10-07 19:55:34,615 method:org.apache.ibatis.io.ResolverUtil.addIfMatching(ResolverUtil.java:256)
+Checking to see if class com.dlri.chinacnr.bwts.entity.User matches criteria [is assignable to Object]
+Logging initialized using &apos;class org.apache.ibatis.logging.stdout.StdOutImpl&apos; adapter.
+</system-out>
+  </testcase>
+  <testcase classname="com.dlri.chinacnr.bwts.dao.DetectionRecordDaoTest" name="testqueryDetectionRecordWithDetails" time="0.097">
+    <error message="Type interface com.dlri.chinacnr.bwts.dao.DetectionRecordDao is not known to the MapperRegistry." type="org.apache.ibatis.binding.BindingException">org.apache.ibatis.binding.BindingException: Type interface com.dlri.chinacnr.bwts.dao.DetectionRecordDao is not known to the MapperRegistry.
+	at org.apache.ibatis.binding.MapperRegistry.getMapper(MapperRegistry.java:47)
+	at org.apache.ibatis.session.Configuration.getMapper(Configuration.java:745)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.getMapper(DefaultSqlSession.java:292)
+	at com.dlri.chinacnr.bwts.dao.DetectionRecordDaoTest.testqueryDetectionRecordWithDetails(DetectionRecordDaoTest.java:51)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:252)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:141)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:112)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:189)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:165)
+	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
+</error>
+    <system-out>[DEBUG] 2018-10-07 19:55:34,640 method:org.apache.ibatis.io.DefaultVFS.findJarForResource(DefaultVFS.java:222)
+Find JAR URL: file:/F:/workspace/2018/new/bwts-dao/target/classes/com/dlri/chinacnr/bwts/entity
+[DEBUG] 2018-10-07 19:55:34,640 method:org.apache.ibatis.io.DefaultVFS.findJarForResource(DefaultVFS.java:248)
+Not a JAR: file:/F:/workspace/2018/new/bwts-dao/target/classes/com/dlri/chinacnr/bwts/entity
+[DEBUG] 2018-10-07 19:55:34,642 method:org.apache.ibatis.io.DefaultVFS.list(DefaultVFS.java:102)
+Reader entry: DetectionDetails.class
+[DEBUG] 2018-10-07 19:55:34,642 method:org.apache.ibatis.io.DefaultVFS.list(DefaultVFS.java:102)
+Reader entry: DetectionRecord.class
+[DEBUG] 2018-10-07 19:55:34,643 method:org.apache.ibatis.io.DefaultVFS.list(DefaultVFS.java:102)
+Reader entry: DynRecord.class
+[DEBUG] 2018-10-07 19:55:34,644 method:org.apache.ibatis.io.DefaultVFS.list(DefaultVFS.java:102)
+Reader entry: Page.class
+[DEBUG] 2018-10-07 19:55:34,645 method:org.apache.ibatis.io.DefaultVFS.list(DefaultVFS.java:102)
+Reader entry: Protocol.class
+[DEBUG] 2018-10-07 19:55:34,646 method:org.apache.ibatis.io.DefaultVFS.list(DefaultVFS.java:102)
+Reader entry: RecordTotal.class
+[DEBUG] 2018-10-07 19:55:34,646 method:org.apache.ibatis.io.DefaultVFS.list(DefaultVFS.java:102)
+Reader entry: ScheduleJob.class
+[DEBUG] 2018-10-07 19:55:34,647 method:org.apache.ibatis.io.DefaultVFS.list(DefaultVFS.java:102)
+Reader entry: Statistical.class
+[DEBUG] 2018-10-07 19:55:34,647 method:org.apache.ibatis.io.DefaultVFS.list(DefaultVFS.java:102)
+Reader entry: User.class
+[DEBUG] 2018-10-07 19:55:34,648 method:org.apache.ibatis.io.DefaultVFS.list(DefaultVFS.java:113)
+Listing file:/F:/workspace/2018/new/bwts-dao/target/classes/com/dlri/chinacnr/bwts/entity
+[DEBUG] 2018-10-07 19:55:34,648 method:org.apache.ibatis.io.DefaultVFS.findJarForResource(DefaultVFS.java:222)
+Find JAR URL: file:/F:/workspace/2018/new/bwts-dao/target/classes/com/dlri/chinacnr/bwts/entity/DetectionDetails.class
+[DEBUG] 2018-10-07 19:55:34,649 method:org.apache.ibatis.io.DefaultVFS.findJarForResource(DefaultVFS.java:248)
+Not a JAR: file:/F:/workspace/2018/new/bwts-dao/target/classes/com/dlri/chinacnr/bwts/entity/DetectionDetails.class
+[DEBUG] 2018-10-07 19:55:34,650 method:org.apache.ibatis.io.DefaultVFS.list(DefaultVFS.java:102)
+Reader entry: 漱壕&amp;#0;&amp;#0;&amp;#0;1&amp;#0;?
+[DEBUG] 2018-10-07 19:55:34,656 method:org.apache.ibatis.io.DefaultVFS.findJarForResource(DefaultVFS.java:222)
+Find JAR URL: file:/F:/workspace/2018/new/bwts-dao/target/classes/com/dlri/chinacnr/bwts/entity/DetectionRecord.class
+[DEBUG] 2018-10-07 19:55:34,657 method:org.apache.ibatis.io.DefaultVFS.findJarForResource(DefaultVFS.java:248)
+Not a JAR: file:/F:/workspace/2018/new/bwts-dao/target/classes/com/dlri/chinacnr/bwts/entity/DetectionRecord.class
+[DEBUG] 2018-10-07 19:55:34,661 method:org.apache.ibatis.io.DefaultVFS.list(DefaultVFS.java:102)
+Reader entry: 漱壕&amp;#0;&amp;#0;&amp;#0;1&amp;#0;?
+[DEBUG] 2018-10-07 19:55:34,662 method:org.apache.ibatis.io.DefaultVFS.findJarForResource(DefaultVFS.java:222)
+Find JAR URL: file:/F:/workspace/2018/new/bwts-dao/target/classes/com/dlri/chinacnr/bwts/entity/DynRecord.class
+[DEBUG] 2018-10-07 19:55:34,662 method:org.apache.ibatis.io.DefaultVFS.findJarForResource(DefaultVFS.java:248)
+Not a JAR: file:/F:/workspace/2018/new/bwts-dao/target/classes/com/dlri/chinacnr/bwts/entity/DynRecord.class
+[DEBUG] 2018-10-07 19:55:34,667 method:org.apache.ibatis.io.DefaultVFS.list(DefaultVFS.java:102)
+Reader entry: 漱壕&amp;#0;&amp;#0;&amp;#0;1&amp;#1;&amp;#4;
+[DEBUG] 2018-10-07 19:55:34,668 method:org.apache.ibatis.io.DefaultVFS.findJarForResource(DefaultVFS.java:222)
+Find JAR URL: file:/F:/workspace/2018/new/bwts-dao/target/classes/com/dlri/chinacnr/bwts/entity/Page.class
+[DEBUG] 2018-10-07 19:55:34,672 method:org.apache.ibatis.io.DefaultVFS.findJarForResource(DefaultVFS.java:248)
+Not a JAR: file:/F:/workspace/2018/new/bwts-dao/target/classes/com/dlri/chinacnr/bwts/entity/Page.class
+[DEBUG] 2018-10-07 19:55:34,673 method:org.apache.ibatis.io.DefaultVFS.list(DefaultVFS.java:102)
+Reader entry: 漱壕&amp;#0;&amp;#0;&amp;#0;1&amp;#0;#
+[DEBUG] 2018-10-07 19:55:34,673 method:org.apache.ibatis.io.DefaultVFS.findJarForResource(DefaultVFS.java:222)
+Find JAR URL: file:/F:/workspace/2018/new/bwts-dao/target/classes/com/dlri/chinacnr/bwts/entity/Protocol.class
+[DEBUG] 2018-10-07 19:55:34,674 method:org.apache.ibatis.io.DefaultVFS.findJarForResource(DefaultVFS.java:248)
+Not a JAR: file:/F:/workspace/2018/new/bwts-dao/target/classes/com/dlri/chinacnr/bwts/entity/Protocol.class
+[DEBUG] 2018-10-07 19:55:34,674 method:org.apache.ibatis.io.DefaultVFS.list(DefaultVFS.java:102)
+Reader entry: 漱壕&amp;#0;&amp;#0;&amp;#0;1&amp;#0;V
+[DEBUG] 2018-10-07 19:55:34,675 method:org.apache.ibatis.io.DefaultVFS.findJarForResource(DefaultVFS.java:222)
+Find JAR URL: file:/F:/workspace/2018/new/bwts-dao/target/classes/com/dlri/chinacnr/bwts/entity/RecordTotal.class
+[DEBUG] 2018-10-07 19:55:34,676 method:org.apache.ibatis.io.DefaultVFS.findJarForResource(DefaultVFS.java:248)
+Not a JAR: file:/F:/workspace/2018/new/bwts-dao/target/classes/com/dlri/chinacnr/bwts/entity/RecordTotal.class
+[DEBUG] 2018-10-07 19:55:34,676 method:org.apache.ibatis.io.DefaultVFS.list(DefaultVFS.java:102)
+Reader entry: 漱壕&amp;#0;&amp;#0;&amp;#0;1&amp;#0;&amp;#29;
+[DEBUG] 2018-10-07 19:55:34,677 method:org.apache.ibatis.io.DefaultVFS.findJarForResource(DefaultVFS.java:222)
+Find JAR URL: file:/F:/workspace/2018/new/bwts-dao/target/classes/com/dlri/chinacnr/bwts/entity/ScheduleJob.class
+[DEBUG] 2018-10-07 19:55:34,677 method:org.apache.ibatis.io.DefaultVFS.findJarForResource(DefaultVFS.java:248)
+Not a JAR: file:/F:/workspace/2018/new/bwts-dao/target/classes/com/dlri/chinacnr/bwts/entity/ScheduleJob.class
+[DEBUG] 2018-10-07 19:55:34,678 method:org.apache.ibatis.io.DefaultVFS.list(DefaultVFS.java:102)
+Reader entry: 漱壕&amp;#0;&amp;#0;&amp;#0;1&amp;#0;J
+[DEBUG] 2018-10-07 19:55:34,680 method:org.apache.ibatis.io.DefaultVFS.findJarForResource(DefaultVFS.java:222)
+Find JAR URL: file:/F:/workspace/2018/new/bwts-dao/target/classes/com/dlri/chinacnr/bwts/entity/Statistical.class
+[DEBUG] 2018-10-07 19:55:34,680 method:org.apache.ibatis.io.DefaultVFS.findJarForResource(DefaultVFS.java:248)
+Not a JAR: file:/F:/workspace/2018/new/bwts-dao/target/classes/com/dlri/chinacnr/bwts/entity/Statistical.class
+[DEBUG] 2018-10-07 19:55:34,684 method:org.apache.ibatis.io.DefaultVFS.list(DefaultVFS.java:102)
+Reader entry: 漱壕&amp;#0;&amp;#0;&amp;#0;1&amp;#0;(
+[DEBUG] 2018-10-07 19:55:34,686 method:org.apache.ibatis.io.DefaultVFS.findJarForResource(DefaultVFS.java:222)
+Find JAR URL: file:/F:/workspace/2018/new/bwts-dao/target/classes/com/dlri/chinacnr/bwts/entity/User.class
+[DEBUG] 2018-10-07 19:55:34,687 method:org.apache.ibatis.io.DefaultVFS.findJarForResource(DefaultVFS.java:248)
+Not a JAR: file:/F:/workspace/2018/new/bwts-dao/target/classes/com/dlri/chinacnr/bwts/entity/User.class
+[DEBUG] 2018-10-07 19:55:34,688 method:org.apache.ibatis.io.DefaultVFS.list(DefaultVFS.java:102)
+Reader entry: 漱壕&amp;#0;&amp;#0;&amp;#0;1&amp;#0;_
+[DEBUG] 2018-10-07 19:55:34,688 method:org.apache.ibatis.io.ResolverUtil.addIfMatching(ResolverUtil.java:256)
+Checking to see if class com.dlri.chinacnr.bwts.entity.DetectionDetails matches criteria [is assignable to Object]
+[DEBUG] 2018-10-07 19:55:34,688 method:org.apache.ibatis.io.ResolverUtil.addIfMatching(ResolverUtil.java:256)
+Checking to see if class com.dlri.chinacnr.bwts.entity.DetectionRecord matches criteria [is assignable to Object]
+[DEBUG] 2018-10-07 19:55:34,689 method:org.apache.ibatis.io.ResolverUtil.addIfMatching(ResolverUtil.java:256)
+Checking to see if class com.dlri.chinacnr.bwts.entity.DynRecord matches criteria [is assignable to Object]
+[DEBUG] 2018-10-07 19:55:34,689 method:org.apache.ibatis.io.ResolverUtil.addIfMatching(ResolverUtil.java:256)
+Checking to see if class com.dlri.chinacnr.bwts.entity.Page matches criteria [is assignable to Object]
+[DEBUG] 2018-10-07 19:55:34,689 method:org.apache.ibatis.io.ResolverUtil.addIfMatching(ResolverUtil.java:256)
+Checking to see if class com.dlri.chinacnr.bwts.entity.Protocol matches criteria [is assignable to Object]
+[DEBUG] 2018-10-07 19:55:34,690 method:org.apache.ibatis.io.ResolverUtil.addIfMatching(ResolverUtil.java:256)
+Checking to see if class com.dlri.chinacnr.bwts.entity.RecordTotal matches criteria [is assignable to Object]
+[DEBUG] 2018-10-07 19:55:34,690 method:org.apache.ibatis.io.ResolverUtil.addIfMatching(ResolverUtil.java:256)
+Checking to see if class com.dlri.chinacnr.bwts.entity.ScheduleJob matches criteria [is assignable to Object]
+[DEBUG] 2018-10-07 19:55:34,690 method:org.apache.ibatis.io.ResolverUtil.addIfMatching(ResolverUtil.java:256)
+Checking to see if class com.dlri.chinacnr.bwts.entity.Statistical matches criteria [is assignable to Object]
+[DEBUG] 2018-10-07 19:55:34,690 method:org.apache.ibatis.io.ResolverUtil.addIfMatching(ResolverUtil.java:256)
+Checking to see if class com.dlri.chinacnr.bwts.entity.User matches criteria [is assignable to Object]
+Logging initialized using &apos;class org.apache.ibatis.logging.stdout.StdOutImpl&apos; adapter.
+</system-out>
+  </testcase>
+  <testcase classname="com.dlri.chinacnr.bwts.dao.DetectionRecordDaoTest" name="testQueryOneDetectionRecord" time="0.082">
+    <error message="Type interface com.dlri.chinacnr.bwts.dao.DetectionRecordDao is not known to the MapperRegistry." type="org.apache.ibatis.binding.BindingException">org.apache.ibatis.binding.BindingException: Type interface com.dlri.chinacnr.bwts.dao.DetectionRecordDao is not known to the MapperRegistry.
+	at org.apache.ibatis.binding.MapperRegistry.getMapper(MapperRegistry.java:47)
+	at org.apache.ibatis.session.Configuration.getMapper(Configuration.java:745)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.getMapper(DefaultSqlSession.java:292)
+	at com.dlri.chinacnr.bwts.dao.impl.DetectionRecordDaoImpl.queryOneDetectionRecord(DetectionRecordDaoImpl.java:21)
+	at com.dlri.chinacnr.bwts.dao.DetectionRecordDaoTest.testQueryOneDetectionRecord(DetectionRecordDaoTest.java:42)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:252)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:141)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:112)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:189)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:165)
+	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
+</error>
+    <system-out>[DEBUG] 2018-10-07 19:55:34,718 method:org.apache.ibatis.io.DefaultVFS.findJarForResource(DefaultVFS.java:222)
+Find JAR URL: file:/F:/workspace/2018/new/bwts-dao/target/classes/com/dlri/chinacnr/bwts/entity
+[DEBUG] 2018-10-07 19:55:34,719 method:org.apache.ibatis.io.DefaultVFS.findJarForResource(DefaultVFS.java:248)
+Not a JAR: file:/F:/workspace/2018/new/bwts-dao/target/classes/com/dlri/chinacnr/bwts/entity
+[DEBUG] 2018-10-07 19:55:34,721 method:org.apache.ibatis.io.DefaultVFS.list(DefaultVFS.java:102)
+Reader entry: DetectionDetails.class
+[DEBUG] 2018-10-07 19:55:34,721 method:org.apache.ibatis.io.DefaultVFS.list(DefaultVFS.java:102)
+Reader entry: DetectionRecord.class
+[DEBUG] 2018-10-07 19:55:34,722 method:org.apache.ibatis.io.DefaultVFS.list(DefaultVFS.java:102)
+Reader entry: DynRecord.class
+[DEBUG] 2018-10-07 19:55:34,723 method:org.apache.ibatis.io.DefaultVFS.list(DefaultVFS.java:102)
+Reader entry: Page.class
+[DEBUG] 2018-10-07 19:55:34,724 method:org.apache.ibatis.io.DefaultVFS.list(DefaultVFS.java:102)
+Reader entry: Protocol.class
+[DEBUG] 2018-10-07 19:55:34,724 method:org.apache.ibatis.io.DefaultVFS.list(DefaultVFS.java:102)
+Reader entry: RecordTotal.class
+[DEBUG] 2018-10-07 19:55:34,758 method:org.apache.ibatis.io.DefaultVFS.list(DefaultVFS.java:102)
+Reader entry: ScheduleJob.class
+[DEBUG] 2018-10-07 19:55:34,759 method:org.apache.ibatis.io.DefaultVFS.list(DefaultVFS.java:102)
+Reader entry: Statistical.class
+[DEBUG] 2018-10-07 19:55:34,760 method:org.apache.ibatis.io.DefaultVFS.list(DefaultVFS.java:102)
+Reader entry: User.class
+[DEBUG] 2018-10-07 19:55:34,761 method:org.apache.ibatis.io.DefaultVFS.list(DefaultVFS.java:113)
+Listing file:/F:/workspace/2018/new/bwts-dao/target/classes/com/dlri/chinacnr/bwts/entity
+[DEBUG] 2018-10-07 19:55:34,761 method:org.apache.ibatis.io.DefaultVFS.findJarForResource(DefaultVFS.java:222)
+Find JAR URL: file:/F:/workspace/2018/new/bwts-dao/target/classes/com/dlri/chinacnr/bwts/entity/DetectionDetails.class
+[DEBUG] 2018-10-07 19:55:34,763 method:org.apache.ibatis.io.DefaultVFS.findJarForResource(DefaultVFS.java:248)
+Not a JAR: file:/F:/workspace/2018/new/bwts-dao/target/classes/com/dlri/chinacnr/bwts/entity/DetectionDetails.class
+[DEBUG] 2018-10-07 19:55:34,764 method:org.apache.ibatis.io.DefaultVFS.list(DefaultVFS.java:102)
+Reader entry: 漱壕&amp;#0;&amp;#0;&amp;#0;1&amp;#0;?
+[DEBUG] 2018-10-07 19:55:34,765 method:org.apache.ibatis.io.DefaultVFS.findJarForResource(DefaultVFS.java:222)
+Find JAR URL: file:/F:/workspace/2018/new/bwts-dao/target/classes/com/dlri/chinacnr/bwts/entity/DetectionRecord.class
+[DEBUG] 2018-10-07 19:55:34,765 method:org.apache.ibatis.io.DefaultVFS.findJarForResource(DefaultVFS.java:248)
+Not a JAR: file:/F:/workspace/2018/new/bwts-dao/target/classes/com/dlri/chinacnr/bwts/entity/DetectionRecord.class
+[DEBUG] 2018-10-07 19:55:34,766 method:org.apache.ibatis.io.DefaultVFS.list(DefaultVFS.java:102)
+Reader entry: 漱壕&amp;#0;&amp;#0;&amp;#0;1&amp;#0;?
+[DEBUG] 2018-10-07 19:55:34,767 method:org.apache.ibatis.io.DefaultVFS.findJarForResource(DefaultVFS.java:222)
+Find JAR URL: file:/F:/workspace/2018/new/bwts-dao/target/classes/com/dlri/chinacnr/bwts/entity/DynRecord.class
+[DEBUG] 2018-10-07 19:55:34,767 method:org.apache.ibatis.io.DefaultVFS.findJarForResource(DefaultVFS.java:248)
+Not a JAR: file:/F:/workspace/2018/new/bwts-dao/target/classes/com/dlri/chinacnr/bwts/entity/DynRecord.class
+[DEBUG] 2018-10-07 19:55:34,769 method:org.apache.ibatis.io.DefaultVFS.list(DefaultVFS.java:102)
+Reader entry: 漱壕&amp;#0;&amp;#0;&amp;#0;1&amp;#1;&amp;#4;
+[DEBUG] 2018-10-07 19:55:34,769 method:org.apache.ibatis.io.DefaultVFS.findJarForResource(DefaultVFS.java:222)
+Find JAR URL: file:/F:/workspace/2018/new/bwts-dao/target/classes/com/dlri/chinacnr/bwts/entity/Page.class
+[DEBUG] 2018-10-07 19:55:34,770 method:org.apache.ibatis.io.DefaultVFS.findJarForResource(DefaultVFS.java:248)
+Not a JAR: file:/F:/workspace/2018/new/bwts-dao/target/classes/com/dlri/chinacnr/bwts/entity/Page.class
+[DEBUG] 2018-10-07 19:55:34,771 method:org.apache.ibatis.io.DefaultVFS.list(DefaultVFS.java:102)
+Reader entry: 漱壕&amp;#0;&amp;#0;&amp;#0;1&amp;#0;#
+[DEBUG] 2018-10-07 19:55:34,771 method:org.apache.ibatis.io.DefaultVFS.findJarForResource(DefaultVFS.java:222)
+Find JAR URL: file:/F:/workspace/2018/new/bwts-dao/target/classes/com/dlri/chinacnr/bwts/entity/Protocol.class
+[DEBUG] 2018-10-07 19:55:34,772 method:org.apache.ibatis.io.DefaultVFS.findJarForResource(DefaultVFS.java:248)
+Not a JAR: file:/F:/workspace/2018/new/bwts-dao/target/classes/com/dlri/chinacnr/bwts/entity/Protocol.class
+[DEBUG] 2018-10-07 19:55:34,773 method:org.apache.ibatis.io.DefaultVFS.list(DefaultVFS.java:102)
+Reader entry: 漱壕&amp;#0;&amp;#0;&amp;#0;1&amp;#0;V
+[DEBUG] 2018-10-07 19:55:34,773 method:org.apache.ibatis.io.DefaultVFS.findJarForResource(DefaultVFS.java:222)
+Find JAR URL: file:/F:/workspace/2018/new/bwts-dao/target/classes/com/dlri/chinacnr/bwts/entity/RecordTotal.class
+[DEBUG] 2018-10-07 19:55:34,775 method:org.apache.ibatis.io.DefaultVFS.findJarForResource(DefaultVFS.java:248)
+Not a JAR: file:/F:/workspace/2018/new/bwts-dao/target/classes/com/dlri/chinacnr/bwts/entity/RecordTotal.class
+[DEBUG] 2018-10-07 19:55:34,789 method:org.apache.ibatis.io.DefaultVFS.list(DefaultVFS.java:102)
+Reader entry: 漱壕&amp;#0;&amp;#0;&amp;#0;1&amp;#0;&amp;#29;
+[DEBUG] 2018-10-07 19:55:34,789 method:org.apache.ibatis.io.DefaultVFS.findJarForResource(DefaultVFS.java:222)
+Find JAR URL: file:/F:/workspace/2018/new/bwts-dao/target/classes/com/dlri/chinacnr/bwts/entity/ScheduleJob.class
+[DEBUG] 2018-10-07 19:55:34,790 method:org.apache.ibatis.io.DefaultVFS.findJarForResource(DefaultVFS.java:248)
+Not a JAR: file:/F:/workspace/2018/new/bwts-dao/target/classes/com/dlri/chinacnr/bwts/entity/ScheduleJob.class
+[DEBUG] 2018-10-07 19:55:34,790 method:org.apache.ibatis.io.DefaultVFS.list(DefaultVFS.java:102)
+Reader entry: 漱壕&amp;#0;&amp;#0;&amp;#0;1&amp;#0;J
+[DEBUG] 2018-10-07 19:55:34,791 method:org.apache.ibatis.io.DefaultVFS.findJarForResource(DefaultVFS.java:222)
+Find JAR URL: file:/F:/workspace/2018/new/bwts-dao/target/classes/com/dlri/chinacnr/bwts/entity/Statistical.class
+[DEBUG] 2018-10-07 19:55:34,791 method:org.apache.ibatis.io.DefaultVFS.findJarForResource(DefaultVFS.java:248)
+Not a JAR: file:/F:/workspace/2018/new/bwts-dao/target/classes/com/dlri/chinacnr/bwts/entity/Statistical.class
+[DEBUG] 2018-10-07 19:55:34,792 method:org.apache.ibatis.io.DefaultVFS.list(DefaultVFS.java:102)
+Reader entry: 漱壕&amp;#0;&amp;#0;&amp;#0;1&amp;#0;(
+[DEBUG] 2018-10-07 19:55:34,792 method:org.apache.ibatis.io.DefaultVFS.findJarForResource(DefaultVFS.java:222)
+Find JAR URL: file:/F:/workspace/2018/new/bwts-dao/target/classes/com/dlri/chinacnr/bwts/entity/User.class
+[DEBUG] 2018-10-07 19:55:34,793 method:org.apache.ibatis.io.DefaultVFS.findJarForResource(DefaultVFS.java:248)
+Not a JAR: file:/F:/workspace/2018/new/bwts-dao/target/classes/com/dlri/chinacnr/bwts/entity/User.class
+[DEBUG] 2018-10-07 19:55:34,793 method:org.apache.ibatis.io.DefaultVFS.list(DefaultVFS.java:102)
+Reader entry: 漱壕&amp;#0;&amp;#0;&amp;#0;1&amp;#0;_
+[DEBUG] 2018-10-07 19:55:34,794 method:org.apache.ibatis.io.ResolverUtil.addIfMatching(ResolverUtil.java:256)
+Checking to see if class com.dlri.chinacnr.bwts.entity.DetectionDetails matches criteria [is assignable to Object]
+[DEBUG] 2018-10-07 19:55:34,794 method:org.apache.ibatis.io.ResolverUtil.addIfMatching(ResolverUtil.java:256)
+Checking to see if class com.dlri.chinacnr.bwts.entity.DetectionRecord matches criteria [is assignable to Object]
+[DEBUG] 2018-10-07 19:55:34,796 method:org.apache.ibatis.io.ResolverUtil.addIfMatching(ResolverUtil.java:256)
+Checking to see if class com.dlri.chinacnr.bwts.entity.DynRecord matches criteria [is assignable to Object]
+[DEBUG] 2018-10-07 19:55:34,797 method:org.apache.ibatis.io.ResolverUtil.addIfMatching(ResolverUtil.java:256)
+Checking to see if class com.dlri.chinacnr.bwts.entity.Page matches criteria [is assignable to Object]
+[DEBUG] 2018-10-07 19:55:34,798 method:org.apache.ibatis.io.ResolverUtil.addIfMatching(ResolverUtil.java:256)
+Checking to see if class com.dlri.chinacnr.bwts.entity.Protocol matches criteria [is assignable to Object]
+[DEBUG] 2018-10-07 19:55:34,798 method:org.apache.ibatis.io.ResolverUtil.addIfMatching(ResolverUtil.java:256)
+Checking to see if class com.dlri.chinacnr.bwts.entity.RecordTotal matches criteria [is assignable to Object]
+[DEBUG] 2018-10-07 19:55:34,798 method:org.apache.ibatis.io.ResolverUtil.addIfMatching(ResolverUtil.java:256)
+Checking to see if class com.dlri.chinacnr.bwts.entity.ScheduleJob matches criteria [is assignable to Object]
+[DEBUG] 2018-10-07 19:55:34,798 method:org.apache.ibatis.io.ResolverUtil.addIfMatching(ResolverUtil.java:256)
+Checking to see if class com.dlri.chinacnr.bwts.entity.Statistical matches criteria [is assignable to Object]
+[DEBUG] 2018-10-07 19:55:34,799 method:org.apache.ibatis.io.ResolverUtil.addIfMatching(ResolverUtil.java:256)
+Checking to see if class com.dlri.chinacnr.bwts.entity.User matches criteria [is assignable to Object]
+Logging initialized using &apos;class org.apache.ibatis.logging.stdout.StdOutImpl&apos; adapter.
+</system-out>
+  </testcase>
+</testsuite>
