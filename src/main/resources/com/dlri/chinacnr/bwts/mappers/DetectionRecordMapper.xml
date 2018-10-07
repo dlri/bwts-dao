@@ -20,6 +20,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result property="savePath" column="save_path"/>
 		<result property="pdfFile" column="pdf_file"/>
 		<result property="bgmFile" column="bgm_file"/>
+		<result property="workShop" column="work_shop"/>
+		<result property="placement" column="placement"/>
+		<result property="equipment" column="equipment"/>
+		<result property="checker" column="checker"/>
+		<result property="gearboxNum" column="gearbox_num"/>
+		<result property="gearboxNog" column="gearbox_nog"/>
+		<result property="gearboxNop" column="gearbox_nop"/>
+		<result property="bearingNo" column="bearing_no"/>
 	</resultMap>
 	
 	<!--该结果集映射映射基本属性和检测点的集合 -->  
@@ -35,22 +43,30 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result property="savePath" column="save_path"/>
 		<result property="pdfFile" column="pdf_file"/>
 		<result property="bgmFile" column="bgm_file"/>
+		<result property="workShop" column="work_shop"/>
+		<result property="placement" column="placement"/>
+		<result property="equipment" column="equipment"/>
+		<result property="checker" column="checker"/>
+		<result property="gearboxNum" column="gearbox_num"/>
+		<result property="gearboxNog" column="gearbox_nog"/>
+		<result property="gearboxNop" column="gearbox_nop"/>
+		<result property="bearingNo" column="bearing_no"/>
 		
 		<collection property="detailsList" resultMap="com.dlri.chinacnr.bwts.dao.DetectionDetailsDao.noDetectionDetailsResult" />
 	</resultMap>
 
 	<select id="queryOneDetectionRecord" parameterType="long" resultMap="detectionRecordResult">
 		select d.id,d.wheel_id,d.repair_rank,d.a_bearing_num,d.b_bearing_num,d.detection_time,
-		d.channel_num,d.tbed_num,d.save_path,d.pdf_file,d.bgm_file
+		d.channel_num,d.tbed_num,d.save_path,d.pdf_file,d.bgm_file,d.work_shop,d.placement,d.equipment,d.checker,d.gearbox_num,d.gearbox_nog,d.gearbox_nop,d.bearing_no
 		 from detection_record d
 		 where d.id=#{id}
 	</select>
 	
 	<select id="queryDetectionRecordWithDetails" parameterType="long" resultMap="detectionRecordWithDetailsResult">
 		select d.id,d.wheel_id,d.repair_rank,d.a_bearing_num,d.b_bearing_num,d.detection_time,
-		d.channel_num,d.tbed_num,d.save_path,d.pdf_file,d.bgm_file,
+		d.channel_num,d.tbed_num,d.save_path,d.pdf_file,d.bgm_file,d.work_shop,d.placement,d.equipment,d.checker,d.gearbox_num,d.gearbox_nog,d.gearbox_nop,d.bearing_no,
 		t.id tid,t.channel_name,t.valid_value,t.peak_value,t.vibration_severity,t.vibration_energy,
-		t.peak_num,t.ripple_factor,t.evaluation,t.non_qualified,t.f_drid
+		t.peak_num,t.ripple_factor,t.evaluation,t.non_qualified,t.f_drid,t.bearing_no,t.seq_num
 		 from detection_record d left join detection_details t
 		 on d.id=t.f_drid
 		 where d.id=#{id}
@@ -59,9 +75,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<!-- userGeneratedKeys和keyProperty属性可以让插入后对象获得本身自己的id -->
 	<insert id="insertOneDetectionRecord" parameterType="DetectionRecord" useGeneratedKeys="true" keyProperty="id" >
 		insert into detection_record  
-		(wheel_id,repair_rank,a_bearing_num,b_bearing_num,detection_time,channel_num,tbed_num,save_path,pdf_file,bgm_file)  
+		(wheel_id,repair_rank,a_bearing_num,b_bearing_num,detection_time,channel_num,tbed_num,save_path,pdf_file,bgm_file,work_shop,placement,equipment,checker,gearbox_num,
+		,gearbox_nog,gearbox_nop,bearing_no)  
          values(#{wheelId},#{repairRank},#{aBearingNum},#{bBearingNum},#{detectionTime},#{channelNum},#{tBedNum},
-         #{savePath},#{pdfFile},#{bgmFile}) 
+         #{savePath},#{pdfFile},#{bgmFile},#{workShop},#{placement},#{equipment},#{checker},#{gearboxNum},#{gearboxNog},#{gearboxNop},#{bearingNo}) 
 	</insert>
 	<!-- 一对多插入存储过程 -->
 	<select id="insertCallProcedureRecord" parameterType="Map" statementType="CALLABLE" resultType="int">
@@ -77,6 +94,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
                #{savePath,mode=IN,jdbcType=VARCHAR},
                #{pdfFile,mode=IN,jdbcType=VARCHAR},
                #{bgmFile,mode=IN,jdbcType=VARCHAR},
+               #{workShop,mode=IN,jdbcType=VARCHAR},
+               #{placement,mode=IN,jdbcType=VARCHAR},
+               #{equipment,mode=IN,jdbcType=VARCHAR},
+               #{checker,mode=IN,jdbcType=VARCHAR},
+               #{gearboxNum,mode=IN,jdbcType=VARCHAR},
+               #{gearboxNog,mode=IN,jdbcType=VARCHAR},
+               #{gearboxNop,mode=IN,jdbcType=VARCHAR},
+               #{bearingNod,mode=IN,jdbcType=VARCHAR},
                #{detectionData,mode=IN,jdbcType=VARCHAR},
                #{res,mode=OUT,jdbcType=INTEGER}
          )
@@ -85,17 +110,38 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<select id="queryDetectionRecordByCondition" parameterType="Map" resultMap="detectionRecordWithDetailsResult">
 		select d.id,d.wheel_id,d.repair_rank,d.a_bearing_num,d.b_bearing_num,d.detection_time,
-		d.channel_num,d.tbed_num,d.save_path,d.pdf_file,d.bgm_file,
+		d.channel_num,d.tbed_num,d.save_path,d.pdf_file,d.bgm_file,d.work_shop,d.placement,d.equipment,d.checker,d.gearbox_num,d.gearbox_nog,d.gearbox_nop,d.bearing_no,
 		t.id tid,t.channel_name,t.valid_value,t.peak_value,t.vibration_severity,t.vibration_energy,
-		t.peak_num,t.ripple_factor,t.evaluation,t.non_qualified,t.f_drid
+		t.peak_num,t.ripple_factor,t.evaluation,t.non_qualified,t.f_drid,t.bearing_no,t.seq_num
 		 from detection_record d left join detection_details t
 		 on d.id=t.f_drid
 		<where>
 			<if test="tBedName!=null">
 				and d.tbed_num= #{tBedName}
 			</if>
+			<if test="workShop!=null">
+				and d.work_shop like concat('%',#{workShop},'%')
+			</if>
+			<if test="placement!=null">
+				and d.placement like concat('%',#{placement},'%')
+			</if>
+			<if test="equipment!=null">
+				and d.equipment like concat('%',#{equipment},'%')
+			</if>
 			<if test="wheelCode!=null">
 				and d.wheel_id like concat('%',#{wheelCode},'%')
+			</if>
+			<if test="gearboxNum!=null">
+				and d.gearbox_num like concat('%',#{gearboxNum},'%')
+			</if>
+			<if test="gearboxNog!=null">
+				and d.gearbox_nog like concat('%',#{gearboxNog},'%')
+			</if>
+			<if test="bearingNo!=null">
+				and d.bearing_no like concat('%',#{bearingNo},'%')
+			</if>
+			<if test="gearboxNop!=null">
+				and d.gearbox_nop like concat('%',#{gearboxNop},'%')
 			</if>
 			<if test="repairing!=null">
 				and d.repair_rank= #{repairing}
@@ -117,8 +163,29 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			<if test="tBedName!=null">
 				and d.tbed_num= #{tBedName}
 			</if>
+			<if test="workShop!=null">
+				and d.work_shop like concat('%',#{workShop},'%')
+			</if>
+			<if test="placement!=null">
+				and d.placement like concat('%',#{placement},'%')
+			</if>
+			<if test="equipment!=null">
+				and d.equipment like concat('%',#{equipment},'%')
+			</if>
 			<if test="wheelCode!=null">
 				and d.wheel_id like concat('%',#{wheelCode},'%')
+			</if>
+			<if test="gearboxNum!=null">
+				and d.gearbox_num like concat('%',#{gearboxNum},'%')
+			</if>
+			<if test="gearboxNog!=null">
+				and d.gearbox_nog like concat('%',#{gearboxNog},'%')
+			</if>
+			<if test="gearboxNop!=null">
+				and d.gearbox_nop like concat('%',#{gearboxNop},'%')
+			</if>
+			<if test="bearingNo!=null">
+				and d.bearing_no like concat('%',#{bearingNo},'%')
 			</if>
 			<if test="repairing!=null">
 				and d.repair_rank= #{repairing}

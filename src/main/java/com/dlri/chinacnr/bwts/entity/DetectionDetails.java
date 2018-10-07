@@ -12,6 +12,8 @@ public class DetectionDetails {
 	private String evaluation;//评价
 	private String nonQualified;//不合格项
 	private long fDrid;//检测记录外键
+	private String bearingNo;//轴承型号
+	private int seqNum;//序号
 	
 	private DetectionRecord detectionRecord;
 	public long getId() {
@@ -85,6 +87,18 @@ public class DetectionDetails {
 	}
 	public void setDetectionRecord(DetectionRecord detectionRecord) {
 		this.detectionRecord = detectionRecord;
+	}
+	public String getBearingNo() {
+		return bearingNo;
+	}
+	public void setBearingNo(String bearingNo) {
+		this.bearingNo = bearingNo;
+	}
+	public int getSeqNum() {
+		return seqNum;
+	}
+	public void setSeqNum(int seqNum) {
+		this.seqNum = seqNum;
 	}
 	@Override
 	public String toString() {

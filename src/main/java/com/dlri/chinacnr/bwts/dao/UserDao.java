@@ -10,4 +10,6 @@ import com.dlri.chinacnr.bwts.entity.User;
 public interface UserDao {
 
 	public User login(User user);
+	
+	public User getUserInfo(long id);
 }

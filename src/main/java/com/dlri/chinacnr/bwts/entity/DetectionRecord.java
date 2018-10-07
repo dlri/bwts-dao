@@ -16,6 +16,15 @@ public class DetectionRecord {
 	private String detectionTime;//检测时间
 	private int channelNum; //通道记录数
 	private String tBedNum;//试验台编号
+	private String workShop;//车间
+	private String placement;//机位
+	private String equipment;//设备
+	private String checker;//检验员
+	private String gearboxNum;//齿轮箱编号
+	private String gearboxNog;//齿轮箱型号(G)
+	private String gearboxNop;//齿轮箱型号(P)
+	private String bearingNo;//轴承型号
+	
 	public int getChannelNum() {
 		return channelNum;
 	}
@@ -92,6 +101,56 @@ public class DetectionRecord {
 	}
 	public void setDetailsList(List<DetectionDetails> detailsList) {
 		this.detailsList = detailsList;
+	}
+	
+	public String getWorkShop() {
+		return workShop;
+	}
+	public void setWorkShop(String workShop) {
+		this.workShop = workShop;
+	}
+	public String getPlacement() {
+		return placement;
+	}
+	public void setPlacement(String placement) {
+		this.placement = placement;
+	}
+	public String getEquipment() {
+		return equipment;
+	}
+	public void setEquipment(String equipment) {
+		this.equipment = equipment;
+	}
+	public String getChecker() {
+		return checker;
+	}
+	public void setChecker(String checker) {
+		this.checker = checker;
+	}
+	public String getGearboxNum() {
+		return gearboxNum;
+	}
+	public void setGearboxNum(String gearboxNum) {
+		this.gearboxNum = gearboxNum;
+	}
+	
+	public String getGearboxNog() {
+		return gearboxNog;
+	}
+	public void setGearboxNog(String gearboxNog) {
+		this.gearboxNog = gearboxNog;
+	}
+	public String getGearboxNop() {
+		return gearboxNop;
+	}
+	public void setGearboxNop(String gearboxNop) {
+		this.gearboxNop = gearboxNop;
+	}
+	public String getBearingNo() {
+		return bearingNo;
+	}
+	public void setBearingNo(String bearingNo) {
+		this.bearingNo = bearingNo;
 	}
 	@Override
 	public String toString() {

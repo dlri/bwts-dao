@@ -5,6 +5,7 @@ import java.util.Map;
 
 import com.dlri.chinacnr.bwts.entity.DetectionRecord;
 import com.dlri.chinacnr.bwts.entity.RecordTotal;
+import com.dlri.chinacnr.bwts.entity.Statistical;
 
 public interface DetectionRecordDao {
 	
@@ -21,6 +22,8 @@ public interface DetectionRecordDao {
 	public int insertCallProcedureRecord(Map<String,Object> map);
 	
 	public List<DetectionRecord> queryRecordByLastTime();
+	
+	public List<Statistical> queryStatistialRecordByCondition(Map<String,Object> map);
 	
 	
 }
