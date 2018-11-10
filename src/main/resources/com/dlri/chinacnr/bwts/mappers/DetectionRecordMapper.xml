@@ -201,7 +201,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="queryRecordByLastTime"  resultMap="detectionRecordWithDetailsResult">
 		select  d.id,d.wheel_id,d.repair_rank,d.a_bearing_num,d.b_bearing_num,d.detection_time,
 		d.channel_num,d.tbed_num,d.save_path,d.pdf_file,d.bgm_file,
-		t.id tid,t.channel_name,t.valid_value,t.peak_value,t.vibration_severity,t.vibration_energy,
+		t.id tid,t.seq_num,t.channel_name,t.bearing_no,t.valid_value,t.peak_value,t.vibration_severity,t.vibration_energy,
 		t.peak_num,t.ripple_factor,t.evaluation,t.non_qualified,t.f_drid
 from (
 select a.* from detection_record a,(select tbed_num,max(detection_time) detection_time from detection_record group by tbed_num) b 
