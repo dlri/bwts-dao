@@ -16,3 +16,4 @@ com\dlri\chinacnr\bwts\entity\RecordTotal.class
 com\dlri\chinacnr\bwts\entity\User.class
 com\dlri\chinacnr\bwts\entity\DetectionRecord.class
 com\dlri\chinacnr\bwts\entity\DetectionDetails.class
+com\dlri\chinacnr\bwts\entity\LoginInfo.class

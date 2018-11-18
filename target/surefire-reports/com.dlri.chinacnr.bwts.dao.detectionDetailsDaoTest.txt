@@ -1,13 +1,16 @@
 -------------------------------------------------------------------------------
 Test set: com.dlri.chinacnr.bwts.dao.detectionDetailsDaoTest
 -------------------------------------------------------------------------------
-Tests run: 4, Failures: 0, Errors: 4, Skipped: 0, Time elapsed: 0.704 sec <<< FAILURE!
-testQueryDetectionRecordByCondition(com.dlri.chinacnr.bwts.dao.detectionDetailsDaoTest)  Time elapsed: 0.399 sec  <<< ERROR!
-org.apache.ibatis.binding.BindingException: Type interface com.dlri.chinacnr.bwts.dao.DetectionDetailsDao is not known to the MapperRegistry.
-	at org.apache.ibatis.binding.MapperRegistry.getMapper(MapperRegistry.java:47)
-	at org.apache.ibatis.session.Configuration.getMapper(Configuration.java:745)
-	at org.apache.ibatis.session.defaults.DefaultSqlSession.getMapper(DefaultSqlSession.java:292)
-	at com.dlri.chinacnr.bwts.dao.detectionDetailsDaoTest.testQueryDetectionRecordByCondition(detectionDetailsDaoTest.java:90)
+Tests run: 4, Failures: 0, Errors: 4, Skipped: 0, Time elapsed: 0.717 sec <<< FAILURE!
+testQueryDetectionRecordByCondition(com.dlri.chinacnr.bwts.dao.detectionDetailsDaoTest)  Time elapsed: 0.423 sec  <<< ERROR!
+org.apache.ibatis.exceptions.PersistenceException: 
+### Error opening session.  Cause: java.lang.NullPointerException
+### Cause: java.lang.NullPointerException
+	at org.apache.ibatis.exceptions.ExceptionFactory.wrapException(ExceptionFactory.java:30)
+	at org.apache.ibatis.session.defaults.DefaultSqlSessionFactory.openSessionFromDataSource(DefaultSqlSessionFactory.java:100)
+	at org.apache.ibatis.session.defaults.DefaultSqlSessionFactory.openSession(DefaultSqlSessionFactory.java:47)
+	at com.dlri.chinacnr.bwts.utils.MybatisUtils.getSqlSession(MybatisUtils.java:20)
+	at com.dlri.chinacnr.bwts.dao.detectionDetailsDaoTest.testQueryDetectionRecordByCondition(detectionDetailsDaoTest.java:89)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -37,13 +40,19 @@ org.apache.ibatis.binding.BindingException: Type interface com.dlri.chinacnr.bwt
 	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
+Caused by: java.lang.NullPointerException
+	at org.apache.ibatis.session.defaults.DefaultSqlSessionFactory.openSessionFromDataSource(DefaultSqlSessionFactory.java:95)
+	... 32 more
 
-testInsertOneDetectionDetails(com.dlri.chinacnr.bwts.dao.detectionDetailsDaoTest)  Time elapsed: 0.083 sec  <<< ERROR!
-org.apache.ibatis.binding.BindingException: Type interface com.dlri.chinacnr.bwts.dao.DetectionDetailsDao is not known to the MapperRegistry.
-	at org.apache.ibatis.binding.MapperRegistry.getMapper(MapperRegistry.java:47)
-	at org.apache.ibatis.session.Configuration.getMapper(Configuration.java:745)
-	at org.apache.ibatis.session.defaults.DefaultSqlSession.getMapper(DefaultSqlSession.java:292)
-	at com.dlri.chinacnr.bwts.dao.impl.DetectionDetailsDaoImpl.insertOneDetectionDetails(DetectionDetailsDaoImpl.java:34)
+testInsertOneDetectionDetails(com.dlri.chinacnr.bwts.dao.detectionDetailsDaoTest)  Time elapsed: 0.058 sec  <<< ERROR!
+org.apache.ibatis.exceptions.PersistenceException: 
+### Error opening session.  Cause: java.lang.NullPointerException
+### Cause: java.lang.NullPointerException
+	at org.apache.ibatis.exceptions.ExceptionFactory.wrapException(ExceptionFactory.java:30)
+	at org.apache.ibatis.session.defaults.DefaultSqlSessionFactory.openSessionFromDataSource(DefaultSqlSessionFactory.java:100)
+	at org.apache.ibatis.session.defaults.DefaultSqlSessionFactory.openSession(DefaultSqlSessionFactory.java:47)
+	at com.dlri.chinacnr.bwts.utils.MybatisUtils.getSqlSession(MybatisUtils.java:20)
+	at com.dlri.chinacnr.bwts.dao.impl.DetectionDetailsDaoImpl.insertOneDetectionDetails(DetectionDetailsDaoImpl.java:33)
 	at com.dlri.chinacnr.bwts.dao.detectionDetailsDaoTest.testInsertOneDetectionDetails(detectionDetailsDaoTest.java:33)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
@@ -74,13 +83,19 @@ org.apache.ibatis.binding.BindingException: Type interface com.dlri.chinacnr.bwt
 	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
+Caused by: java.lang.NullPointerException
+	at org.apache.ibatis.session.defaults.DefaultSqlSessionFactory.openSessionFromDataSource(DefaultSqlSessionFactory.java:95)
+	... 33 more
 
-testQueryOneDetectionDetails(com.dlri.chinacnr.bwts.dao.detectionDetailsDaoTest)  Time elapsed: 0.043 sec  <<< ERROR!
-org.apache.ibatis.binding.BindingException: Type interface com.dlri.chinacnr.bwts.dao.DetectionDetailsDao is not known to the MapperRegistry.
-	at org.apache.ibatis.binding.MapperRegistry.getMapper(MapperRegistry.java:47)
-	at org.apache.ibatis.session.Configuration.getMapper(Configuration.java:745)
-	at org.apache.ibatis.session.defaults.DefaultSqlSession.getMapper(DefaultSqlSession.java:292)
-	at com.dlri.chinacnr.bwts.dao.impl.DetectionDetailsDaoImpl.queryOneDetectionDetails(DetectionDetailsDaoImpl.java:19)
+testQueryOneDetectionDetails(com.dlri.chinacnr.bwts.dao.detectionDetailsDaoTest)  Time elapsed: 0.066 sec  <<< ERROR!
+org.apache.ibatis.exceptions.PersistenceException: 
+### Error opening session.  Cause: java.lang.NullPointerException
+### Cause: java.lang.NullPointerException
+	at org.apache.ibatis.exceptions.ExceptionFactory.wrapException(ExceptionFactory.java:30)
+	at org.apache.ibatis.session.defaults.DefaultSqlSessionFactory.openSessionFromDataSource(DefaultSqlSessionFactory.java:100)
+	at org.apache.ibatis.session.defaults.DefaultSqlSessionFactory.openSession(DefaultSqlSessionFactory.java:47)
+	at com.dlri.chinacnr.bwts.utils.MybatisUtils.getSqlSession(MybatisUtils.java:20)
+	at com.dlri.chinacnr.bwts.dao.impl.DetectionDetailsDaoImpl.queryOneDetectionDetails(DetectionDetailsDaoImpl.java:18)
 	at com.dlri.chinacnr.bwts.dao.detectionDetailsDaoTest.testQueryOneDetectionDetails(detectionDetailsDaoTest.java:81)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
@@ -111,13 +126,19 @@ org.apache.ibatis.binding.BindingException: Type interface com.dlri.chinacnr.bwt
 	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
+Caused by: java.lang.NullPointerException
+	at org.apache.ibatis.session.defaults.DefaultSqlSessionFactory.openSessionFromDataSource(DefaultSqlSessionFactory.java:95)
+	... 33 more
 
-testInsertBatchDetectionDetails(com.dlri.chinacnr.bwts.dao.detectionDetailsDaoTest)  Time elapsed: 0.054 sec  <<< ERROR!
-org.apache.ibatis.binding.BindingException: Type interface com.dlri.chinacnr.bwts.dao.DetectionDetailsDao is not known to the MapperRegistry.
-	at org.apache.ibatis.binding.MapperRegistry.getMapper(MapperRegistry.java:47)
-	at org.apache.ibatis.session.Configuration.getMapper(Configuration.java:745)
-	at org.apache.ibatis.session.defaults.DefaultSqlSession.getMapper(DefaultSqlSession.java:292)
-	at com.dlri.chinacnr.bwts.dao.impl.DetectionDetailsDaoImpl.insertBatchDetectionDetails(DetectionDetailsDaoImpl.java:50)
+testInsertBatchDetectionDetails(com.dlri.chinacnr.bwts.dao.detectionDetailsDaoTest)  Time elapsed: 0.053 sec  <<< ERROR!
+org.apache.ibatis.exceptions.PersistenceException: 
+### Error opening session.  Cause: java.lang.NullPointerException
+### Cause: java.lang.NullPointerException
+	at org.apache.ibatis.exceptions.ExceptionFactory.wrapException(ExceptionFactory.java:30)
+	at org.apache.ibatis.session.defaults.DefaultSqlSessionFactory.openSessionFromDataSource(DefaultSqlSessionFactory.java:100)
+	at org.apache.ibatis.session.defaults.DefaultSqlSessionFactory.openSession(DefaultSqlSessionFactory.java:47)
+	at com.dlri.chinacnr.bwts.utils.MybatisUtils.getSqlSession(MybatisUtils.java:20)
+	at com.dlri.chinacnr.bwts.dao.impl.DetectionDetailsDaoImpl.insertBatchDetectionDetails(DetectionDetailsDaoImpl.java:49)
 	at com.dlri.chinacnr.bwts.dao.detectionDetailsDaoTest.testInsertBatchDetectionDetails(detectionDetailsDaoTest.java:75)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
@@ -148,4 +169,7 @@ org.apache.ibatis.binding.BindingException: Type interface com.dlri.chinacnr.bwt
 	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
+Caused by: java.lang.NullPointerException
+	at org.apache.ibatis.session.defaults.DefaultSqlSessionFactory.openSessionFromDataSource(DefaultSqlSessionFactory.java:95)
+	... 33 more
 
